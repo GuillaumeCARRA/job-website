@@ -1,0 +1,36 @@
+.navbar {
+    width: 100%;
+    height: 100%;
+    /* position: fixed;
+    z-index: 1; */
+}
+
+.navbar__container{
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 30px;
+}
+
+/* .navbar__menu{
+    
+} */
+
+.navbar__list{
+    display: flex;
+    list-style: none;
+    margin-right: 70px;
+}
+
+.navbar__item{
+    margin-right: 80px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.navbar__link{
+    color:#fff;
+    text-decoration: none;
+}

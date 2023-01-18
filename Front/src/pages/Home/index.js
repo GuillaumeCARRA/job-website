@@ -43,7 +43,7 @@ function Home() {
           <h2 className='home__titlereview'>Ce que pensents les utilisateurs</h2>
         </div>
         <footer className='home__footer'>
-          <p>quelques mots en attendant</p>
+          <p>quelques mots en attendant le footer original</p>
         </footer>
     </div>
   )

@@ -68,7 +68,7 @@
     color: #fff;
     position: absolute;
     top: 10%;
-    right: 50%;
+    right: 55%;
     width: 40%;
     padding: 50px;
 }
@@ -90,11 +90,12 @@
     background-color: #161313;
     position: relative;
 }
+
 .home__titlelatestoffers{
     color: #fff;
     position: absolute;
-    top: 10%;
-    right: 50%;
+    top: 15%;
+    right: 55%;
     width: 40%;
     padding: 50px;
 }

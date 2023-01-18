@@ -25,6 +25,7 @@
     justify-content: space-around;
 }
 
+
 .home__picture {
     max-width: 70%;
     max-height: 80%;
@@ -35,6 +36,7 @@
 
 .btn__signin{
     margin-right: 10px;
+    margin-top: 25px;
     padding: 20px;
     border-radius: 8%;
     outline: none;
@@ -57,7 +59,7 @@
 }
 
 .home__company{
-    margin-top: 100px;
+    margin-top: 200px;
     height: 100vh;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
     background-color: #161313;

@@ -7,8 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 80px;
-    
+    margin-top: 80px; 
 }
 
 .home__left{
@@ -98,4 +97,21 @@
     right: 55%;
     width: 40%;
     padding: 50px;
+}
+
+.home__review{
+    height: 100vh;
+    margin-top: 80px;
+}
+
+.home__titlereview{
+    color: #161313;
+    margin-left: 10px;
+    padding-left: 120px;
+}
+
+.home__footer{
+    background-color: #161313;
+    padding: 150px;
+    color:#fff;
 }

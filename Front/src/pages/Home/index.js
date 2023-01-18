@@ -39,6 +39,12 @@ function Home() {
         <div className='home__latestoffers'>
             <h2 className='home__titlelatestoffers'>les dernières offres</h2>
         </div>
+        <div className='home__review'>
+          <h2 className='home__titlereview'>Ce que pensents les utilisateurs</h2>
+        </div>
+        <footer className='home__footer'>
+          <p>quelques mots en attendant</p>
+        </footer>
     </div>
   )
 }

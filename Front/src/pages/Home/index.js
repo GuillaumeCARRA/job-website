@@ -19,6 +19,8 @@ function Home() {
                 dc,ld,vkldsgvl,go,fdohj,ofpdhj,pojhipjthtijehjeihjijhi <br/>
                 lskcjksjcvjdvfjidsgjirsjgdjgsjrhgiojrhgkjhejhszjthjitd <br/>
               </p>
+              <button className='btn__signin'>S'inscrire</button> 
+              <button className='btn__login'>Se connecter</button>
             </div>
             <div className='home__right'>
               <img 
@@ -27,6 +29,12 @@ function Home() {
                 alt="woman remote work"
               />
             </div>
+        </div>
+        <div className='home__company'>
+              <h2 className='home__titlecompany'>Trouvez la perle rare parmi les entreprises qui recrutent</h2>
+        </div>
+        <div className='home__remotenumbers'>
+            <h2 className='home__titlenumbers'>quelques chiffres du télétravail en france</h2>
         </div>
     </div>
   )

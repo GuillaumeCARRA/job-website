@@ -26,6 +26,7 @@
     max-width: 70%;
     max-height: 80%;
     margin-top: 10px;
+    border-radius: 5%;
 }
 
 .btn__signin{
@@ -53,7 +54,6 @@
 .home__company{
     margin-top: 100px;
     height: 100vh;
-    /* clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%); */
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
     background-color: #161313;
     position: relative;
@@ -67,7 +67,6 @@
     width: 40%;
     padding: 50px;
 }
-
 
 .home__remotenumbers {
     height: 100vh;

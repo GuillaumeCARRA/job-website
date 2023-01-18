@@ -8,7 +8,7 @@ function Home() {
         <Navbar />
         <div className='home__container'>
             <div className='home__left'>
-              <p>
+              <p className='home__description'>
                 o,kgo,osr,gos,qohg,soh,oteh,torephtorpeoprtothohor,no, <br/>
                 dc,ld,vkldsgvl,go,fdohj,ofpdhj,pojhipjthtijehjeihjijhi <br/>
                 lskcjksjcvjdvfjidsgjirsjgdjgsjrhgiojrhgkjhejhszjthjitd <br/>

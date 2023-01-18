@@ -17,6 +17,10 @@
     font-size: 1.4rem;
 }
 
+.home__description{
+    font-weight: 500;
+}
+
 .home__right{
     display: flex; 
     justify-content: space-around;
@@ -38,6 +42,7 @@
     cursor: pointer;
     background-color: #161313;
     color: #ffff;
+   
 }
 
 .btn__login{

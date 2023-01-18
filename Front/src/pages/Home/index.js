@@ -36,6 +36,9 @@ function Home() {
         <div className='home__remotenumbers'>
             <h2 className='home__titlenumbers'>quelques chiffres du télétravail en france</h2>
         </div>
+        <div className='home__latestoffers'>
+            <h2 className='home__titlelatestoffers'>les dernières offres</h2>
+        </div>
     </div>
   )
 }

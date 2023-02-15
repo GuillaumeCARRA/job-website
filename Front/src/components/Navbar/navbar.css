@@ -1,7 +1,7 @@
 .navbar {
     width: 100%;
     height: 100px;
-    background-color: #161313;
+    background: linear-gradient(180deg, #7035f0, #f528cb);
     /* position: fixed;
     z-index: 1; */ 
 }

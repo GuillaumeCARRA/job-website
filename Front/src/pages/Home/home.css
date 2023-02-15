@@ -25,7 +25,6 @@
     justify-content: space-around;
 }
 
-
 .home__picture {
     max-width: 70%;
     max-height: 80%;
@@ -62,7 +61,7 @@
     margin-top: 200px;
     height: 100vh;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
-    background-color: #161313;
+    background: linear-gradient(45deg, #6831e3, #f528cb);
     position: relative;
 }
 
@@ -89,7 +88,7 @@
     margin-top: 100px;
     height: 100vh;
     clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
-    background-color: #161313;
+    background: linear-gradient(-45deg, #6831e3, #f528cb);;
     position: relative;
 }
 
@@ -114,7 +113,7 @@
 }
 
 .home__footer{
-    background-color: #161313;
+    background: linear-gradient(180deg, #6831e3, #f528cb);
     padding: 150px;
     color:#fff;
 }

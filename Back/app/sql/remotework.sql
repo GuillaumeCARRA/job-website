@@ -80,7 +80,7 @@ CREATE TABLE "job" (
     "date_published" DATE NOT NULL,
     "job_start_date" DATE NOT NULL,
     "contract_status" TEXT NOT NULL,
-    "recruite_id" INT REFERENCES "recruiter"("id"),
+    "recruiter_id" INT REFERENCES "recruiter"("id"),
     "job_category_id" INT REFERENCES "job_category"("id")
 );
 

@@ -10,10 +10,10 @@ DROP TABLE IF EXISTS "role",
                      job_applications;
 
 
-CREATE TABLE "role" (
-    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
-    "name" TEXT NOT NULL
-);
+-- CREATE TABLE "role" (
+--     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+--     "name" TEXT NOT NULL
+-- );
 
 
 CREATE TABLE "users" (
@@ -21,14 +21,11 @@ CREATE TABLE "users" (
     "first_name" TEXT NOT NULL,
     "last_name" TEXT NOT NULL,
     "email" TEXT NOT NULL UNIQUE,
-    "password" TEXT NOT NULL,  
-    "role_id" INT REFERENCES "role"("id")
+    "password" TEXT NOT NULL
 );
 
 CREATE TABLE "job_seeker_details" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
-    "first_name" TEXT NOT NULL,
-    "last_name" TEXT NOT NULL,
     "date_of_birth" DATE NOT NULL,
     "address" TEXT NOT NULL,
     "zip_code" TEXT NOT NULL, 
@@ -49,7 +46,7 @@ CREATE TABLE "job_seeker_details" (
     "job_title_search" TEXT NOT NULL, 
     "job_location_search" TEXT NOT NULL, 
     "job_contract_search" TEXT NOT NULL,
-    "role_id" INT REFERENCES "role"("id")
+    "users_id" INT REFERENCES "users"("id")
 );
 
 
@@ -63,8 +60,7 @@ CREATE TABLE "recruiter" (
     "company_name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "phone_number" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
-    "role_id" INT REFERENCES "role"("id")
+    "password" TEXT NOT NULL
 );
 
 CREATE TABLE "job_category" (

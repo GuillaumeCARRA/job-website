@@ -28,7 +28,7 @@ app.use(express.json());
 // }));
 
 
-// app.use(router);
+app.use(router);
 
 
 // server launch

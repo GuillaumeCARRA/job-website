@@ -2,7 +2,7 @@
 const sequelize = require ('../client'); 
 
 // we add the classes of the package we need
-const {Datatypes, Model} = require('sequelize'); 
+const {DataTypes, Model} = require('sequelize'); 
 
 class Users extends Model{}; 
 
@@ -11,11 +11,11 @@ Users.init (
     // 1st argument: an object which describes the fields of the table
     // No need to indicate the id field, Sequelize adds it automatically
     {
-       first_name: Datatypes.TEXT,
-       last_name: Datatypes.TEXT,
-       email: Datatypes.TEXT,
-       password: Datatypes.TEXT,
-       role_id: Datatypes.INTEGER
+       first_name: DataTypes.TEXT,
+       last_name: DataTypes.TEXT,
+       email: DataTypes.TEXT,
+       password: DataTypes.TEXT,
+       role_id: DataTypes.INTEGER
     },
     // 2nd argument: an object with connection info
     {

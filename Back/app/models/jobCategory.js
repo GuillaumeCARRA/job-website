@@ -2,7 +2,7 @@
 const sequelize = require ('../client'); 
 
 // we add the classes of the package we need
-const {Datatypes, Model} = require('sequelize'); 
+const {DataTypes, Model} = require('sequelize'); 
 
 class JobCategory extends Model{}; 
 
@@ -11,7 +11,7 @@ JobCategory.init (
     // 1st argument: an object which describes the fields of the table
     // No need to indicate the id field, Sequelize adds it automatically
     {
-        category_name: Datatypes.TEXT
+        category_name: DataTypes.TEXT
     },
     // 2nd argument: an object with connection info
     {

@@ -1,13 +1,13 @@
 BEGIN;
 
 
-DROP TABLE IF EXISTS "role", 
-                     users, 
+DROP TABLE IF EXISTS users, 
                      job_seeker_details,
                      recruiter,
                      job_category, 
                      job,
-                     job_applications;
+                     job_applications, 
+                     _m2m_job_cat;
 
 
 -- CREATE TABLE "role" (
@@ -88,6 +88,11 @@ CREATE TABLE "job_applications" (
     "job_seeker_details_id" INT REFERENCES "job_seeker_details"("id")
 );
 
+CREATE TABLE "_m2m_job_cat" (
+    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "job_id" INT REFERENCES "job"("id"), 
+    "job_category_id" INT REFERENCES "job_category"("id")
+); 
 
 
 COMMIT;

@@ -2,7 +2,7 @@
 const sequelize = require ('../client'); 
 
 // we add the classes of the package we need
-const {Datatypes, Model} = require('sequelize'); 
+const {DataTypes, Model} = require('sequelize'); 
 
 class JobApplications extends Model{}; 
 
@@ -11,9 +11,9 @@ JobApplications.init (
     // 1st argument: an object which describes the fields of the table
     // No need to indicate the id field, Sequelize adds it automatically
     {
-       date_applied: Datatypes.DATE,
-       job_id: Datatypes.INTEGER,
-       job_seeker_details_id: Datatypes.INTEGER
+       date_applied: DataTypes.DATE,
+       job_id: DataTypes.INTEGER,
+       job_seeker_details_id: DataTypes.INTEGER
     },
     // 2nd argument: an object with connection info
     {

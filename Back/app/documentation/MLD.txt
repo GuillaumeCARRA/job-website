@@ -1,0 +1,9 @@
+users(id, first_name, last_name, email, password)
+job_seeker_details(id, date_of_birth, address, zip_code, district, country, email, password, driving_licence, phone_number, current_job_title, is_current_job, availability_job, degree_level, degree_name, annual_salary, worker_statuts, job_title_search, job_location_search, job_contract_search, #users(id))
+recruiter(id, first_name, last_name, street_address, zip_code, status_company, company_name, email, phone_number, password)
+job_category(id, category_name)
+job(id, job_title, job_description, job_location, date_published, job_start_date, contract_status, #recruiter(id), #job_category(id))
+job_applications(id, date_applied, #job(id), #job_seeker_details(id))
+_m2m_job_cat(#job(id), #job_seeker_details(id))
+
+# = foreign key 

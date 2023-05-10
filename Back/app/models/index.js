@@ -6,9 +6,13 @@ const Recruiter = require('./recruiter');
 const Users = require('./users'); 
 
 /*JOBSEEKER USER 1N START */
+// a Users has many JobSeekerDetail (n) => hasMany
+// 1st argument: the model to link
+// 2nd argument: configuration object
 Users.hasMany(JobSeekerDetails, {
+    // the foreign key that must be found in JobSeekerDetails
     foreignKey: 'users_id',
-
+     // the name we want to give to the jobSeekers in users if we do a join
     as:'jobSeekers'
 }); 
 
@@ -64,12 +68,19 @@ Job.belongsTo(Recruiter, {
 
 /*MANY TO MANY START*/
 Job.belongsToMany(JobCategory,{
+
+    // Set the name of the association from a "Job" instance to its "JobCategory" instances
     as: 'jobCategories', 
 
+    //Set the name of the table used to store the many-to-many relationship
     through: '_m2m_job_cat', 
 
+    //Set the name of the foreign key in the table used to store 
+    //the many-to-many relationship, that references the "Job" table
     foreignKey: 'job_id', 
 
+    //Set the name of the foreign key in the table used to store 
+    //the many-to-many relationship, that references the "JobCategory" table
     otherKey: 'job_category_id'
 }); 
 

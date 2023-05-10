@@ -18,8 +18,6 @@ JobSeekerDetails.init (
        zip_code: DataTypes.TEXT,
        district: DataTypes.TEXT,
        country: DataTypes.TEXT,
-       email: DataTypes.TEXT,
-       password: DataTypes.TEXT,
        driving_licence: DataTypes.TEXT,
        phone_number: DataTypes.TEXT,
        current_job_title: DataTypes.TEXT,

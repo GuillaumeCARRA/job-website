@@ -31,8 +31,6 @@ CREATE TABLE "job_seeker_details" (
     "zip_code" TEXT NOT NULL, 
     "district" TEXT NOT NULL, 
     "country" TEXT NOT NULL,
-    "email" TEXT NOT NULL UNIQUE,
-    "password" TEXT NOT NULL, 
     "driving_licence" TEXT NOT NULL, 
     "phone_number" TEXT NOT NULL, 
     "current_job_title" TEXT NOT NULL, 

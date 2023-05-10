@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const emailValidator = require('email-validator');
 
 //models import
-const { Users } = require('../models'); 
+const { Users, JobSeekerDetails } = require('../models'); 
 
 
 module.exports = {
@@ -107,13 +107,13 @@ module.exports = {
             const {first_name, last_name, email} = request.body; 
 
             if(first_name){
-                updatedUser.first_name = first_name
+                updatedUser.first_name = first_name;
             }
             if(last_name){
-                updatedUser.last_name = last_name
+                updatedUser.last_name = last_name;
             }
             if(email){
-                updatedUser.email = email
+                updatedUser.email = email;
             }
 
             await updatedUser.save();
@@ -124,6 +124,37 @@ module.exports = {
             console.log(error);
             response.status(500).json({error});
         }
+    }, 
+
+    deleteUser : async(request, response) => {
+        const userId = request.params.id;
+       
+        try {
+            const deletedUser = await Users.findOne({
+                where: {id: userId}, 
+            }); 
+
+            const deletedJobSeekerDetail = await JobSeekerDetails.findOne({
+                where: {users_id: userId}
+            });
+
+            if(!deletedUser){
+                response.status(404).json({error: "aucun utilisateurs"});
+                return;
+            }
+            
+            if(deletedJobSeekerDetail) {
+                await deletedJobSeekerDetail.destroy(); 
+            }
+
+            await deletedUser.destroy(); 
+            
+        
+            response.json("l'utilisateur a bien été supprimé")
+
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({error});
+        }
     }
 }
-

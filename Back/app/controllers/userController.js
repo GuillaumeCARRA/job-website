@@ -55,7 +55,7 @@ module.exports = {
                                 last_name: request.body.lastname,
                                 email: request.body.email,
                                 password: hashedPassword, 
-                                role_id: request.body.role_id
+                                // role_id: request.body.role_id
                             });
                             //we save the new user in db
                             await newUser.save();
@@ -64,6 +64,65 @@ module.exports = {
         } catch (error) {
             console.log(error);
             return response.status(500).send(error.message);
+        }
+    },
+
+    handleLoginForm: async(request, response) => {
+        try {
+             // we check if the user exist in DB
+            const checkUser = await Users.findOne({
+                where: {
+                    email: request.body.email
+                }
+            }); 
+
+            if(!checkUser){
+                response.json({errors: "problème d'authentification"})
+            } else {
+                //we compare the password hashed in DB
+                const comparePassword = bcrypt.compareSync(request.body.password, checkUser.password); 
+
+                //if the password is not the same, we launch an error
+                if(!comparePassword) {
+                    response.json({errors: "problème d'authentification"})
+                } else {
+                    response.json.status(200).send({ok: "connexion ok"}); 
+                }
+            }
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({error});
+        }
+    }, 
+
+    updateUser: async (request, response) => {
+        
+        const userId = request.params.id; 
+
+        try {
+            const updatedUser = await Users.findOne({
+                where: {id: userId}
+            }); 
+
+            const {first_name, last_name, email} = request.body; 
+
+            if(first_name){
+                updatedUser.first_name = first_name
+            }
+            if(last_name){
+                updatedUser.last_name = last_name
+            }
+            if(email){
+                updatedUser.email = email
+            }
+
+            await updatedUser.save();
+
+            response.json({data: updatedUser});
+
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({error});
         }
     }
 }

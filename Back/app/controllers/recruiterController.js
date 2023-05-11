@@ -60,10 +60,33 @@ module.exports = {
                         email: request.body.email
                     }
                 }); 
+                //if we have a result we send an error
+                if(checkRecruiter) {
+                    response.status(404).send({errors: ["Une erreur s'est produite lors de la création !"]});    
+                } else {
+                    // we hash the password for store it in DB
+                    const hashPassword = bcrypt.hashSync(request.body.password, 10);
+
+                    // if the email does not exist we can create a new recruiter
+                    const newRecruiter = new Recruiter({
+                        id: request.params.id, 
+                        first_name: request.body.first_name,
+                        last_name: request.body.last_name, 
+                        street_address: request.body.street_address,
+                        zip_code: request.body.zip_code,
+                        status_company:request.body.status_company,
+                        company_name:request.body.company_name,
+                        email: request.body.email,
+                        phone_number: request.body.phone_number,
+                        password: hashPassword
+                    });
+                    //we save the new recruiter in db
+                    await newRecruiter.save();
+                }
             }
-
         } catch(error) {
-
+            console.log(error);
+            return response.status(500).send(error.message);
         }
     }
 }

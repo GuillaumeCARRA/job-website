@@ -41,18 +41,16 @@ module.exports = {
                         });
                         // if we have a result, we send an error
                         if (checkUser) {
-                            response.render('signup', {
-                                errors: ["Une erreur s'est produite lors de la création !"]
-                            });
+                            response.status(404).send({errors: ["Une erreur s'est produite lors de la création !"]});    
                         } else {
                             //we hash the password for store it in DB
-                            const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+                            const hashedPassword = bcrypt.hashSync(request.body.password, 10);
 
                             //if the email does not exist we can create a new user 
                             const newUser = new User({
                                 id: request.params.id, 
-                                first_name: request.body.firstname,
-                                last_name: request.body.lastname,
+                                first_name: request.body.first_name,
+                                last_name: request.body.last_name,
                                 email: request.body.email,
                                 password: hashedPassword, 
                                 // role_id: request.body.role_id

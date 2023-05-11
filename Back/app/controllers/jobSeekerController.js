@@ -1,5 +1,5 @@
 //import models
-const { JobSeekerDetails } = require ('../models'); 
+const { JobSeekerDetails, Users } = require ('../models'); 
 
 
 module.exports = {
@@ -41,6 +41,13 @@ module.exports = {
     },
 
     createJobSeeker: async(request, response) => {
+
+        const user = Users.findByPk(request.params.usersId);
+
+        if(!user) {
+            return response.status(404).json({error: 'aucun utilisateur'})
+        }
+
         const jobSeekerData = {
             date_of_birth:  request.params.date_of_birth,
             address:  request.params.address,
@@ -65,6 +72,7 @@ module.exports = {
         try {
 
             const createdJobSeeker = await JobSeekerDetails.create(jobSeekerData); 
+            await user.setJobSeekerDetails(createdJobSeeker);
             response.status(201).json({data: createdJobSeeker}); 
 
         } catch(error) {
@@ -173,6 +181,30 @@ module.exports = {
         } catch (error) {
             console.log(error);
             response.status(500).json({error});
+        }
+    },
+    deleteJobSeeker: async(request, response) => {
+        try {
+            const jobSeekerId = request.params.id;
+    
+            const jobSeeker = await JobSeekerDetails.findOne({
+                where: {id: jobSeekerId},
+                include: [
+                    {association: 'users'}
+                ]
+            });
+    
+            if (!jobSeeker) {
+                return response.status(404).json({error: 'utilisateur non disponible'});
+            }
+    
+            await jobSeeker.destroy();
+    
+            response.json({message: 'utilisateur supprimé'});
+    
+        } catch(error) {
+            console.log(error);
+            response.status(500).json({ error });
         }
     }
 }

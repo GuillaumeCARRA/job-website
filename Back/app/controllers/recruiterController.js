@@ -88,5 +88,88 @@ module.exports = {
             console.log(error);
             return response.status(500).send(error.message);
         }
+    }, 
+    handleRecruiterLoginForm: async(request, response) => {
+        try {
+            // we check if the recruiter exist in DB
+            const checkRecruiter = await Recruiter.findOne({
+                where: {
+                    email: request.body.email
+                }
+            }); 
+
+            if(!checkRecruiter){
+                response.json({errors: "problème d'authentification"});
+            } else {
+                //we compare the password hashed in DB
+                const comparePassword = bcrypt.compareSync(request.body.password, checkRecruiter.password); 
+                
+                //if the password is not the same, we launch an error
+                if(!comparePassword) {
+                    response.json({errors: "problème d'authentification"})
+                } else {
+                    response.json.status(200).send({ok: "connexion ok"});
+                }
+            }
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({error});
+        }
+    }, 
+
+    updateRecruiter: async(request,response) => {
+
+        const recruiterId = request.params.id; 
+
+        try {
+            const updatedRecruiter = await Recruiter.findOne({
+                where: {id: recruiterId}
+            });
+
+            const{
+                first_name,
+                last_name,
+                street_address,
+                zip_code,
+                status_company,
+                company_name,
+                email,
+                phone_number
+            } = request.body;
+
+            if(first_name){
+                updatedRecruiter.first_name = first_name;
+            }
+            if(last_name){
+                updatedRecruiter.last_name = last_name;
+            }
+            if(street_address){
+                updatedRecruiter.street_address = street_address;
+            }
+            if(zip_code){
+                updatedRecruiter.zip_code = zip_code;
+            }
+            if(status_company){
+                updatedRecruiter.status_company = status_company;
+            }
+            if(company_name){
+                updatedRecruiter.company_name = company_name;
+            }
+            if(email){
+                updatedRecruiter.email = email;
+            }
+            if(phone_number){
+                updatedRecruiter.phone_number = phone_number;
+            }
+
+            await updatedRecruiter.save();
+
+            response.json({data: updatedRecruiter}); 
+            
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({error});
+        }
+
     }
 }

@@ -14,8 +14,8 @@ Users.init (
        first_name: DataTypes.TEXT,
        last_name: DataTypes.TEXT,
        email: DataTypes.TEXT,
-       password: DataTypes.TEXT,
-       role_id: DataTypes.INTEGER
+       password: DataTypes.TEXT
+    //    role_id: DataTypes.INTEGER
     },
     // 2nd argument: an object with connection info
     {

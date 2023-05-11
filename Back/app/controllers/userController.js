@@ -146,9 +146,7 @@ module.exports = {
             }
 
             await deletedUser.destroy(); 
-            
-        
-            response.json("l'utilisateur a bien été supprimé")
+            response.json("l'utilisateur a bien été supprimé");
 
         } catch (error) {
             console.log(error);

@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const emailValidator = require('email-validator');
 
 //models import
-const { Recruiter } = require ('../models'); 
+const { Recruiter, Job } = require ('../models'); 
 
 module.exports = {
     handleRecruiterSignUpform: async(request, response) => {
@@ -171,5 +171,35 @@ module.exports = {
             response.status(500).json({error});
         }
 
+    }, 
+
+    deleteRecruiter: async(request, response) => {
+        const recruiterId = request.params.id; 
+
+        try {
+            const deletedRecruiter = await Recruiter.findOne({
+                where: {id: recruiterId}
+            }); 
+
+            const deletedJob = await Job.findOne({
+                where: {recruiter_id: recruiterId}
+            });
+            
+            if(!deletedRecruiter){
+                response.status(404).json({error: "aucun utilisateurs"});
+                return;
+            }
+            
+            if(deletedJob) {
+                await deletedJob.destroy(); 
+            }
+
+            await deletedRecruiter.destroy(); 
+            response.json("le recruteur a bien été supprimé");
+
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({error});
+        }
     }
 }

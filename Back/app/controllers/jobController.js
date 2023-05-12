@@ -7,7 +7,7 @@ module.exports = {
             const jobs = await Job.findAll({
                 include: [
                     {association: 'recruiters'}, 
-                    {association: 'jobApplies'}
+                    {association: 'jobCategories'}
                 ]
             })
 
@@ -27,7 +27,7 @@ module.exports = {
                 where: {id: jobId},
                 include: [
                     {association: 'recruiters'}, 
-                    {association: 'jobApplies'}
+                    {association: 'jobCategories'}
                 ]
             }); 
             response.json({data: oneJob}); 

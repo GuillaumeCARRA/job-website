@@ -1,0 +1,1 @@
+const { JobCategory } = require('../models'); 

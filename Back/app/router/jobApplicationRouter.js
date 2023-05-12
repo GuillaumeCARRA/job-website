@@ -4,4 +4,10 @@ const jobApplicationsController = require('../controllers/jobApplicationsControl
 
 const router = express.Router();
 
+router.get('/', jobApplicationsController.getAllApplies);
+router.get('/:id(\\d+)', jobApplicationsController.getOneApply);
+router.post('/:id(\\d+)', jobApplicationsController.createApply)
+router.patch('/:id(\\d+)', jobApplicationsController.updateApply);
+router.delete('/:id(\\d+)', jobApplicationsController.deleteApply);
+
 module.exports = router; 

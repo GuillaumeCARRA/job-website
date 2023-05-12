@@ -126,6 +126,10 @@ module.exports = {
                 where: {id: recruiterId}
             });
 
+            if(!updatedRecruiter) {
+                return response.status(404).json({error: "Aucun recruteur"});
+            }
+
             const{
                 first_name,
                 last_name,

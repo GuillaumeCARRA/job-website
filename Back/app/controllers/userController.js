@@ -102,6 +102,10 @@ module.exports = {
                 where: {id: userId}
             }); 
 
+            if(!updatedUser) {
+                return response.status(404).json({error: "Aucune utilisateur"})
+            }
+
             const {first_name, last_name, email} = request.body; 
 
             if(first_name){

@@ -105,7 +105,7 @@ module.exports = {
                 degree_level, 
                 degree_name,
                 annual_salary,
-                worker_status,
+                worker_statuts,
                 job_title_search,
                 job_location_search,
                 job_contract_search, 
@@ -156,7 +156,7 @@ module.exports = {
                 updatedJobSeeker.annual_salary = annual_salary;
             }
             if(worker_statuts){
-                updatedJobSeeker.worker_status = worker_status;
+                updatedJobSeeker.worker_statuts = worker_statuts;
             }
             if(job_title_search){
                 updatedJobSeeker.job_title_search = job_title_search;

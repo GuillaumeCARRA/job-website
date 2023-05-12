@@ -55,11 +55,72 @@ module.exports = {
             response.status(500).json({ error }); 
         }
 
+    }, 
+
+    updateJob: async(request, response) => {
+        try {
+            const updatedJob = await Job.findOne({
+                where: {id: request.params.id}
+            }); 
+
+            const {
+                job_title,
+                job_description,
+                job_location,
+                date_published,
+                job_start_date,
+                contract_status
+            } = request.body
+
+            if(job_title){
+                updatedJob.job_title = job_title; 
+            }
+            if(job_description){
+                updatedJob.job_description = job_description;
+            }
+            if(job_location){
+                updatedJob.job_location = job_location;
+            }
+            if(date_published){
+                updatedJob.date_published = date_published;
+            }
+            if(job_start_date){
+                updatedJob.job_start_date = job_start_date;
+            }
+            if(contract_status){
+                updatedJob.contract_status = contract_status;
+            }
+
+            await updatedJob.save(); 
+            response.json({data: updatedJob});
+
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({ error }); 
+        }
+    },
+
+    deleteJob: async(request, response) => {
+        const jobId = request.params.id; 
+
+        try {
+            const deletedJob = await Job.findOne({
+                where: {id: jobId}
+            }); 
+
+            if(!jobId){
+                response.status(404).json({erro: "aucune offre d'emploi"})
+                return;
+            }
+
+            await deletedJob.destroy(); 
+
+            response.json({data: deletedJob}); 
+
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({ error });
+        }
     }
-
-    // updateJob
-
-    // deleteJob
-
 
 }

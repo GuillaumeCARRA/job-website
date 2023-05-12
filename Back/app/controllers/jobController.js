@@ -109,7 +109,7 @@ module.exports = {
             }); 
 
             if(!jobId){
-                response.status(404).json({erro: "aucune offre d'emploi"})
+                response.status(404).json({error: "aucune offre d'emploi"})
                 return;
             }
 

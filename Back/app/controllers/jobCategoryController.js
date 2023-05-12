@@ -1,4 +1,4 @@
-const { JobCategory } = require('../models'); 
+const { JobCategory, Job } = require('../models'); 
 
 module.exports = {
     getAllCategories: async(request, response) => {
@@ -55,9 +55,54 @@ module.exports = {
             console.log(error);
             response.status(500).json({ error });
         }
+    },
+
+    updateCategory: async(request, response) => {
+        
+        try {
+            const updatedCategory = await JobCategory.findOne({
+                where: {id: request.params.id}
+            }); 
+
+            if(!updatedCategory) {
+                return response.status(404).json({error: "Aucune catégorie"})
+            }
+
+            const {
+                category_name 
+            } = request.body
+
+            if(category_name){
+                updatedCategory.category_name = category_name; 
+            }
+
+            await updatedCategory.save(); 
+
+            response.json({data: updatedCategory});
+
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({error});
+        }
+    },
+
+    deleteCategory: async(request, response) => {
+        try {
+            const deletedCategory = await JobCategory.findOne({
+                where: {id: request.params.id}
+            }); 
+
+            if(!deletedCategory) {
+                return response.status(404).json({error: "Aucune catégorie"});
+            }
+
+            await deletedCategory.destroy();
+
+            response.json({data: deletedCategory});
+
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({ error });
+        }
     }
-
-    // updateCategory:
-
-    // deleteCategory:
 }

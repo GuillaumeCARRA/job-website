@@ -14,10 +14,10 @@ app.get('/', (req, res) => {
     res.send('Hello World');
   });
 
-// const router = require('./Back/app/routers'); 
+const router = require('./router'); 
 
-// //add middleware for data POST
-// app.use(express.urlencoded({extended: true}))
+//add middleware for data POST
+app.use(express.urlencoded({extended: true}))
 
 app.use(express.json());
 
@@ -28,7 +28,7 @@ app.use(express.json());
 // }));
 
 
-// app.use(router);
+app.use(router);
 
 
 // server launch

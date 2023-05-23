@@ -185,18 +185,18 @@ module.exports = {
                 where: {id: recruiterId}
             }); 
 
-            const deletedJob = await Job.findOne({
-                where: {recruiter_id: recruiterId}
-            });
+            // const deletedJob = await Job.findOne({
+            //     where: {recruiter_id: recruiterId}
+            // });
             
             if(!deletedRecruiter){
                 response.status(404).json({error: "aucun utilisateurs"});
                 return;
             }
             
-            if(deletedJob) {
-                await deletedJob.destroy(); 
-            }
+            // if(deletedJob) {
+            //     await deletedJob.destroy(); 
+            // }
 
             await deletedRecruiter.destroy(); 
             response.json("le recruteur a bien été supprimé");

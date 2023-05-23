@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const emailValidator = require('email-validator');
 
 //models import
-const { Recruiter, Job } = require ('../models'); 
+const { Recruiter } = require ('../models'); 
 
 module.exports = {
     handleRecruiterSignUpform: async(request, response) => {

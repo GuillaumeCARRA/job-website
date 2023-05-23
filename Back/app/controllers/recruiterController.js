@@ -108,7 +108,7 @@ module.exports = {
                 if(!comparePassword) {
                     response.json({errors: "problème d'authentification"})
                 } else {
-                    response.json.status(200).send({ok: "connexion ok"});
+                    response.status(200).json({ok: "connexion ok"});
                 }
             }
         } catch (error) {

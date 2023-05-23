@@ -11,8 +11,6 @@ JobSeekerDetails.init (
     // 1st argument: an object which describes the fields of the table
     // No need to indicate the id field, Sequelize adds it automatically
     {
-       first_name: DataTypes.TEXT,
-       last_name: DataTypes.TEXT,
        date_of_birth: DataTypes.DATE, 
        address: DataTypes.TEXT,
        zip_code: DataTypes.TEXT,
@@ -30,8 +28,8 @@ JobSeekerDetails.init (
        worker_statuts: DataTypes.TEXT,
        job_title_search: DataTypes.TEXT,
        job_location_search: DataTypes.TEXT,
-       job_contract_search: DataTypes.TEXT,
-       role_id: DataTypes.INTEGER
+       job_contract_search: DataTypes.TEXT, 
+       users_id: DataTypes.INTEGER
     },
     // 2nd argument: an object with connection info
     {

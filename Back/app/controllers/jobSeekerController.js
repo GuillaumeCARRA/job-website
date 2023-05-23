@@ -42,11 +42,11 @@ module.exports = {
 
     createJobSeeker: async(request, response) => {
 
-        const user = Users.findByPk(request.params.usersId);
+        // const user = Users.findByPk(request.params.usersId);
 
-        if(!user) {
-            return response.status(404).json({error: 'aucun utilisateur'})
-        }
+        // if(!user) {
+        //     return response.status(404).json({error: 'aucun utilisateur'})
+        // }
 
         const jobSeekerData = {
             date_of_birth:  request.body.date_of_birth,
@@ -63,16 +63,17 @@ module.exports = {
             degree_level:  request.body.degree_level,
             degree_name:  request.body.degree_name,
             annual_salary:  request.body.annual_salary,
-            worker_status:  request.body.worker_status,
+            worker_statuts:  request.body.worker_statuts,
             job_title_search:  request.body.job_title_search,
             job_location_search:  request.body.job_location_search,
             job_contract_search: request.body.job_contract_search,
+            users_id: request.body.users_id
         }
 
         try {
 
             const createdJobSeeker = await JobSeekerDetails.create(jobSeekerData); 
-            await user.setJobSeekerDetails(createdJobSeeker);
+            // await user.setJobSeekerDetails(createdJobSeeker);
             response.status(201).json({data: createdJobSeeker}); 
 
         } catch(error) {

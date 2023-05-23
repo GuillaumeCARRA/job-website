@@ -19,8 +19,7 @@ Recruiter.init (
        company_name: DataTypes.TEXT,
        email: DataTypes.TEXT,
        phone_number: DataTypes.TEXT,
-       password: DataTypes.TEXT,
-       role_id: DataTypes.INTEGER
+       password: DataTypes.TEXT
     },
     // 2nd argument: an object with connection info
     {

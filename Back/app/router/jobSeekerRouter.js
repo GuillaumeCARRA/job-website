@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', jobSeekerController.getAllJobSeekers);
 router.get('/:id(\\d+)', jobSeekerController.getOneJobSeeker);
-router.post('/:id(\\d+)', jobSeekerController.createJobSeeker)
+router.post('/', jobSeekerController.createJobSeeker);
 router.patch('/:id(\\d+)', jobSeekerController.updateJobSeeker);
 router.delete('/:id(\\d+)', jobSeekerController.deleteJobSeeker);
 

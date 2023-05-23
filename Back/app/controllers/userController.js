@@ -47,7 +47,7 @@ module.exports = {
                             const hashedPassword = bcrypt.hashSync(request.body.password, 10);
 
                             //if the email does not exist we can create a new user 
-                            const newUser = new User({
+                            const newUser = new Users({
                                 id: request.params.id, 
                                 first_name: request.body.first_name,
                                 last_name: request.body.last_name,
@@ -84,7 +84,7 @@ module.exports = {
                 if(!comparePassword) {
                     response.json({errors: "problème d'authentification"})
                 } else {
-                    response.json.status(200).send({ok: "connexion ok"}); 
+                    response.status(200).json({ok: "connexion ok"}); 
                 }
             }
         } catch (error) {

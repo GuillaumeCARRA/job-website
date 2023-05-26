@@ -46,7 +46,9 @@ module.exports = {
 
     createApply: async(request, response) => {
         const applyData = {
-            date_applied: request.body.date_applied
+            date_applied: request.body.date_applied,
+            job_id: request.body.job_id,
+            job_seeker_details_id: request.body.job_seeker_details_id 
         };
 
         try {

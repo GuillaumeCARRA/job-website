@@ -29,7 +29,7 @@ module.exports = {
             }); 
 
             if(!category) {
-                response.satus(404).json({
+                response.status(404).json({
                     error: 'pas de catégorie'
                 });
                 return; 

@@ -17,8 +17,8 @@ Job.init (
        date_published: DataTypes.DATE,
        job_start_date: DataTypes.DATE,
        contract_status: DataTypes.TEXT,
-       recruiter_id: DataTypes.INTEGER,
-       job_category_id: DataTypes.INTEGER
+       recruiter_id: DataTypes.INTEGER
+    //    job_category_id: DataTypes.INTEGER
 
     },
     // 2nd argument: an object with connection info

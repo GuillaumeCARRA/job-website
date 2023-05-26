@@ -1,4 +1,4 @@
-const { Job, JobCategory } = require('../models'); 
+const { Job, JobCategory, Recruiter } = require('../models'); 
 
 module.exports = {
 
@@ -49,6 +49,16 @@ module.exports = {
 
         try {
             const createdJob = await Job.create(jobData); 
+
+            const recruiter = await Recruiter.findByPk(request.body.recruiter_id); 
+
+            if(!recruiter) {
+                response.status(404).json({ error: "Recruteur introuvable" });
+                return;
+            }
+
+            await createdJob.setRecruiters(recruiter); 
+
             response.status(201).json({data: createdJob})
         } catch (error) {
             console.log(error);

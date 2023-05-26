@@ -75,7 +75,7 @@ CREATE TABLE "job" (
     "job_start_date" DATE NOT NULL,
     "contract_status" TEXT NOT NULL,
     "recruiter_id" INT REFERENCES "recruiter"("id"),
-    "job_category_id" INT REFERENCES "job_category"("id")
+    -- "job_category_id" INT REFERENCES "job_category"("id")
 );
 
 

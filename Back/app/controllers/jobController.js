@@ -1,4 +1,4 @@
-const { Job } = require('../models'); 
+const { Job, JobCategory } = require('../models'); 
 
 module.exports = {
 
@@ -117,6 +117,76 @@ module.exports = {
 
             response.json({data: deletedJob}); 
 
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({ error });
+        }
+    },
+
+    associateJobCategory: async(request,response) => {
+        const jobId = request.params.jobId; 
+        const categoryId = request.params.catId; 
+
+
+        try {
+
+            const job = await Job.findByPk(jobId, {
+                include: "jobCategories"
+            }); 
+
+            const jobCat = await JobCategory.findByPk(categoryId); 
+
+            if(!job){
+                response.status(404).json({
+                    error: "aucun job à cet id"
+                });
+                return;
+            }
+
+            if(!jobCat) {
+                response.status(404).json({
+                    error: "aucune catégorie à cet id"
+                });
+                return;
+            }
+
+            await job.addJobCategories(jobCat); 
+            response.json({data: job});
+            
+        } catch (error) {
+            console.log(error);
+            response.status(500).json({ error });
+        }
+    },
+
+    dissociateJobCategory: async(request,response) => {
+        const jobId = request.params.jobId; 
+        const categoryId = request.params.catId; 
+
+
+        try {
+
+            const job = await Job.findByPk(jobId); 
+
+            const jobCat = await JobCategory.findByPk(categoryId); 
+
+            if(!job){
+                response.status(404).json({
+                    error: "aucun job à cet id"
+                });
+                return;
+            }
+
+            if(!jobCat) {
+                response.status(404).json({
+                    error: "aucune catégorie à cet id"
+                });
+                return;
+            }
+
+            await job.removeJobCategories(jobCat); 
+            response.json({data: job});
+            
         } catch (error) {
             console.log(error);
             response.status(500).json({ error });

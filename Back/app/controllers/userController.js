@@ -1,9 +1,14 @@
 //npm import
 const bcrypt = require('bcrypt');
 const emailValidator = require('email-validator');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 //models import
 const { Users, JobSeekerDetails } = require('../models'); 
+
+//jwt import
+const { generateToken, verifyToken } = require('../auth/jwtUtils'); 
 
 
 module.exports = {
@@ -57,6 +62,12 @@ module.exports = {
                             });
                             //we save the new user in db
                             await newUser.save();
+
+                            // After successfully saving the new user, generate the JWT
+                            const token = generateToken({ id: newUser.id, email: newUser.email });
+
+                            // Add the JWT to the response
+                            response.status(200).json({data: newUser, token });
                         }
                     }
         } catch (error) {
@@ -75,18 +86,25 @@ module.exports = {
             }); 
 
             if(!checkUser){
-                response.json({errors: "problème d'authentification"})
+                response.status(401).json({errors: "problème d'authentification"});
             } else {
                 //we compare the password hashed in DB
-                const comparePassword = bcrypt.compareSync(request.body.password, checkUser.password); 
+                const comparePassword = bcrypt.compareSync(
+                    request.body.password, 
+                    checkUser.password
+                ); 
+              //if the password is not the same, we launch an error
+              if(!comparePassword) {
+                    response.status(401).json({errors: "problème d'authentification"})
+              } else {
 
-                //if the password is not the same, we launch an error
-                if(!comparePassword) {
-                    response.json({errors: "problème d'authentification"})
-                } else {
-                    response.status(200).json({ok: "connexion ok"}); 
-                }
+                    const token = generateToken({ id: checkUser.id, email: checkUser.email, first_name: checkUser.first_name, last_name: checkUser.last_name });
+                    console.log('function generate', token);
+                    response.status(200).json({ token, ok: "connexion ok" });
+              }
+
             }
+
         } catch (error) {
             console.log(error);
             response.status(500).json({error});
@@ -96,6 +114,7 @@ module.exports = {
     updateUser: async (request, response) => {
         
         const userId = request.params.id; 
+      
 
         try {
             const updatedUser = await Users.findOne({
@@ -103,7 +122,7 @@ module.exports = {
             }); 
 
             if(!updatedUser) {
-                return response.status(404).json({error: "Aucune utilisateur"})
+                return response.status(404).json({error: "Aucun utilisateur"})
             }
 
             const {first_name, last_name, email} = request.body; 
@@ -120,8 +139,12 @@ module.exports = {
 
             await updatedUser.save();
 
-            response.json({data: updatedUser});
+            const token = generateToken({ id: updatedUser.id, email: updatedUser.email });
 
+        
+            return response.json({data: updatedUser, token });
+          
+          
         } catch (error) {
             console.log(error);
             response.status(500).json({error});
@@ -130,8 +153,13 @@ module.exports = {
 
     deleteUser : async(request, response) => {
         const userId = request.params.id;
+
+         // Get the token from the request headers
+        // const token = request.headers.authorization;
        
         try {
+
+        
             const deletedUser = await Users.findOne({
                 where: {id: userId}, 
             }); 
@@ -150,7 +178,7 @@ module.exports = {
             // }
 
             await deletedUser.destroy(); 
-            response.json("l'utilisateur a bien été supprimé");
+            response.status(200).json({deletedUser, data: "l'utilisateur a bien été supprimé"});
 
         } catch (error) {
             console.log(error);

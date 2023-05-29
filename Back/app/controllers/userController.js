@@ -1,7 +1,6 @@
 //npm import
 const bcrypt = require('bcrypt');
 const emailValidator = require('email-validator');
-const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 //models import

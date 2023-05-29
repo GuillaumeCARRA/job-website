@@ -13,43 +13,52 @@ module.exports = {
             if (!request.body.first_name || request.body.first_name.length === 0) {
                 errors.push('veuillez indiquer votre prénom !')
                 response.json(errors); 
+                return;
             }
             //we check if last_name is not empty
             if (!request.body.last_name || request.body.last_name.length === 0) {
                 errors.push('veuillez indiquer votre nom !')
                 response.json(errors); 
+                return;
             }
             //we check if address is not empty
             if (!request.body.street_address || request.body.street_address.length === 0){
                 errors.push('veuillez indiquer votre adresse !')
                 response.json(errors); 
+                return;
             }
             if (!request.body.zip_code || request.body.zip_code.length === 0){
                 errors.push('veuillez indiquer votre code postal !')
                 response.json(errors); 
+                return;
             }
             if (!request.body.status_company || request.body.status_company.length === 0){
                 errors.push('veuillez indiquer le statut de l"entreprise !')
                 response.json(errors); 
+                return;
             }
             if (!request.body.company_name || request.body.company_name.length === 0){
                 errors.push('veuillez indiquer le nom de l"entreprise !')
                 response.json(errors); 
+                return;
             }
             //we check if email is valid
             if (!emailValidator.validate(request.body.email)) {
                 errors.push('email non valide !')
                 response.json(errors); 
+                return;
             }
             //we check if phone_number is not empty
             if (!request.body.phone_number || request.body.phone_number.length === 0) {
                 errors.push('veuillez indiquer votre numéro de téléphone')
                 response.json(errors); 
+                return;
             }
             //we check if password contains at least 8 characters
             if(!request.body.password || request.body.password.length < 8) {
                 errors.push('le mot de passe doit contenir plus de caractères !')
                 response.json(errors); 
+                return;
             } 
             // we check if we have at least one error
             if (errors.length > 0) {
@@ -82,6 +91,8 @@ module.exports = {
                     });
                     //we save the new recruiter in db
                     await newRecruiter.save();
+                    return response.status(200).json({ data: newRecruiter });
+                    
                 }
             }
         } catch(error) {
@@ -99,7 +110,7 @@ module.exports = {
             }); 
 
             if(!checkRecruiter){
-                response.json({errors: "problème d'authentification"});
+                return response.json({errors: "problème d'authentification"});
             } else {
                 //we compare the password hashed in DB
                 const comparePassword = bcrypt.compareSync(request.body.password, checkRecruiter.password); 
@@ -113,7 +124,7 @@ module.exports = {
             }
         } catch (error) {
             console.log(error);
-            response.status(500).json({error});
+           return response.status(500).json({error});
         }
     }, 
 
@@ -168,7 +179,7 @@ module.exports = {
 
             await updatedRecruiter.save();
 
-            response.json({data: updatedRecruiter}); 
+            return response.json({data: updatedRecruiter}); 
             
         } catch (error) {
             console.log(error);
@@ -199,7 +210,7 @@ module.exports = {
             // }
 
             await deletedRecruiter.destroy(); 
-            response.json("le recruteur a bien été supprimé");
+            return response.status(200).json({deletedRecruiter, data: "le recruteur a bien été supprimé"});
 
         } catch (error) {
             console.log(error);

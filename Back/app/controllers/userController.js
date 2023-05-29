@@ -18,25 +18,29 @@ module.exports = {
                 if (!request.body.first_name || request.body.first_name.length === 0) {
                     errors.push('veuillez indiquer votre prénom !')
                     response.json(errors); 
+                    return;
                 }
                 //we check if last_name is not empty
                 if (!request.body.last_name || request.body.last_name.length === 0) {
                     errors.push('veuillez indiquer votre nom !')
                     response.json(errors); 
+                    return;
                 }
                 //we check if email is valid
                 if (!emailValidator.validate(request.body.email)) {
                     errors.push('email non valide !')
                     response.json(errors); 
+                    return;
                 }
                 //we check if password contains at least 8 characters
                 if(!request.body.password || request.body.password.length < 8) {
                     errors.push('le mot de passe doit contenir plus de caractères !')
                     response.json(errors); 
+                    return;
                 }
                  // we check if we have at least one error
                 if (errors.length > 0) {
-                    response.json({errors})
+                    return response.json({errors});
                 } else {
                         // we check if the user does not exist in BDD
                         const checkUser = await Users.findOne({
@@ -46,7 +50,7 @@ module.exports = {
                         });
                         // if we have a result, we send an error
                         if (checkUser) {
-                            response.status(404).send({errors: ["Une erreur s'est produite lors de la création !"]});    
+                            return response.status(404).send({errors: ["Une erreur s'est produite lors de la création !"]});    
                         } else {
                             //we hash the password for store it in DB
                             const hashedPassword = bcrypt.hashSync(request.body.password, 10);
@@ -67,7 +71,7 @@ module.exports = {
                             const token = generateToken({ id: newUser.id, email: newUser.email });
 
                             // Add the JWT to the response
-                            response.status(200).json({data: newUser, token });
+                            return response.status(200).json({data: newUser, token });
                         }
                     }
         } catch (error) {
@@ -86,7 +90,7 @@ module.exports = {
             }); 
 
             if(!checkUser){
-                response.status(401).json({errors: "problème d'authentification"});
+                return response.status(401).json({errors: "problème d'authentification"});
             } else {
                 //we compare the password hashed in DB
                 const comparePassword = bcrypt.compareSync(
@@ -107,7 +111,7 @@ module.exports = {
 
         } catch (error) {
             console.log(error);
-            response.status(500).json({error});
+            return response.status(500).json({error});
         }
     }, 
 
@@ -178,7 +182,7 @@ module.exports = {
             // }
 
             await deletedUser.destroy(); 
-            response.status(200).json({deletedUser, data: "l'utilisateur a bien été supprimé"});
+            return response.status(200).json({deletedUser, data: "l'utilisateur a bien été supprimé"});
 
         } catch (error) {
             console.log(error);

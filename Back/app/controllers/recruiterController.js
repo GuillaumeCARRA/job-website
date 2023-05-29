@@ -5,6 +5,9 @@ const emailValidator = require('email-validator');
 //models import
 const { Recruiter } = require ('../models'); 
 
+//jwt import
+const { generateToken, verifyToken } = require('../auth/jwtUtils'); 
+
 module.exports = {
     handleRecruiterSignUpform: async(request, response) => {
         try {
@@ -62,7 +65,7 @@ module.exports = {
             } 
             // we check if we have at least one error
             if (errors.length > 0) {
-                response.json({errors})
+                return response.json({errors}); 
             } else {
                 const checkRecruiter = await Recruiter.findOne({
                     where: {
@@ -71,7 +74,7 @@ module.exports = {
                 }); 
                 //if we have a result we send an error
                 if(checkRecruiter) {
-                    response.status(404).send({errors: ["Une erreur s'est produite lors de la création !"]});    
+                   return response.status(404).send({errors: ["Une erreur s'est produite lors de la création !"]});    
                 } else {
                     // we hash the password for store it in DB
                     const hashPassword = bcrypt.hashSync(request.body.password, 10);
@@ -91,7 +94,11 @@ module.exports = {
                     });
                     //we save the new recruiter in db
                     await newRecruiter.save();
-                    return response.status(200).json({ data: newRecruiter });
+
+                    // After successfully saving the new recruiter, generate the JWT
+                    const token = generateToken({ id: newRecruiter.id, email: newRecruiter.email });
+
+                    return response.status(200).json({ data: newRecruiter, token });
                     
                 }
             }
@@ -110,16 +117,16 @@ module.exports = {
             }); 
 
             if(!checkRecruiter){
-                return response.json({errors: "problème d'authentification"});
+                return response.status(401).json({errors: "problème d'authentification"});
             } else {
                 //we compare the password hashed in DB
                 const comparePassword = bcrypt.compareSync(request.body.password, checkRecruiter.password); 
                 
                 //if the password is not the same, we launch an error
                 if(!comparePassword) {
-                    response.json({errors: "problème d'authentification"})
+                   return response.status(401).json({errors: "problème d'authentification"})
                 } else {
-                    response.status(200).json({ok: "connexion ok"});
+                   return response.status(200).json({ok: "connexion ok"});
                 }
             }
         } catch (error) {

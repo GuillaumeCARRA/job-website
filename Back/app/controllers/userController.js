@@ -117,10 +117,26 @@ module.exports = {
 
     updateUser: async (request, response) => {
         
-        const userId = request.params.id; 
+        const userId = parseInt(request.params.id); 
+        
+        // Get the token from the request headers
+        const authHeader = request.headers.authorization;
+
+
+        // Extract the token without the "Bearer" prefix
+        const token = authHeader.split(' ')[1];
       
 
         try {
+
+            const decodedToken = verifyToken(token);
+            const decodedUserId = decodedToken.id;
+
+            if (decodedUserId !== userId) {
+                response.status(401).json({ error: "Vous n'êtes pas autorisé à modifier cet utilisateur" });
+                return;
+            }
+
             const updatedUser = await Users.findOne({
                 where: {id: userId}
             }); 
@@ -143,10 +159,9 @@ module.exports = {
 
             await updatedUser.save();
 
-            const token = generateToken({ id: updatedUser.id, email: updatedUser.email });
 
         
-            return response.json({data: updatedUser, token });
+            return response.json({data: updatedUser });
           
           
         } catch (error) {
@@ -158,12 +173,15 @@ module.exports = {
     deleteUser : async(request, response) => {
         const userId = parseInt(request.params.id);
 
-         // Get the token from the request headers
+        // Get the token from the request headers
         const authHeader = request.headers.authorization;
+
+        // Extract the token without the "Bearer" prefix
+        const token = authHeader.split(' ')[1];
        
         try {
 
-            const decodedToken = verifyToken(authHeader);
+            const decodedToken = verifyToken(token);
             console.log('decoded', decodedToken);
           
             const decodedUserId = decodedToken.id;

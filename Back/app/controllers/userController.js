@@ -156,12 +156,25 @@ module.exports = {
     }, 
 
     deleteUser : async(request, response) => {
-        const userId = request.params.id;
+        const userId = parseInt(request.params.id);
 
          // Get the token from the request headers
-        // const token = request.headers.authorization;
+        const authHeader = request.headers.authorization;
        
         try {
+
+            const decodedToken = verifyToken(authHeader);
+            console.log('decoded', decodedToken);
+          
+            const decodedUserId = decodedToken.id;
+            console.log('decodedUserId not parse', decodedToken.id);
+
+            if (decodedUserId !== userId) {
+                console.log('decodedUserId inside if', decodedUserId);
+                console.log('userId inside if', userId);
+                response.status(401).json({ error: "Vous n'êtes pas autorisé à supprimer cet utilisateur" });
+                return;
+              }
 
         
             const deletedUser = await Users.findOne({

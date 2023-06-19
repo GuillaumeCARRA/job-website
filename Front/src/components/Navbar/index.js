@@ -5,6 +5,9 @@ function Navbar() {
   return (
     <header className='navbar'>
         <div className='navbar__container'>
+            <div className='navbar__logo'>
+                logo
+            </div>
             <div className='navbar__menu'>
                 <ul className='navbar__list'>
                     <li className='navbar__item'>
@@ -23,6 +26,10 @@ function Navbar() {
                         <a href='/item4' className='navbar__link'>test1</a>
                     </li>
                 </ul>
+            </div>
+            <div className="navbar__buttons">
+                    <button className='navbar__btn'>Se connecter</button>
+                    <button className='navbar__btn navbar__btn--background'>S'inscrire</button>
             </div>
         </div>
     </header>

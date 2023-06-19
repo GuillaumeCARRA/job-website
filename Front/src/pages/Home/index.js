@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className='home'>
         <Navbar />
-        <div className='home__container'>
+        {/* <div className='home__container'>
             <div className='home__left'>
               <p className='home__description'>
                 o,kgo,osr,gos,qohg,soh,oteh,torephtorpeoprtothohor,no, <br/>
@@ -44,7 +44,7 @@ function Home() {
         </div>
         <footer className='home__footer'>
           <p>quelques mots en attendant le footer original</p>
-        </footer>
+        </footer> */}
     </div>
   )
 }

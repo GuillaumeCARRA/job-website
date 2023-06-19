@@ -3,7 +3,7 @@
     height: 100vh;
 }
 
-.home__container{
+/* .home__container{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -116,4 +116,4 @@
     background: linear-gradient(180deg, #6831e3, #f528cb);
     padding: 150px;
     color:#fff;
-}
+} */

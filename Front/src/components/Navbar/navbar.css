@@ -2,8 +2,17 @@
     width: 100%;
     height: 100px;
     /* background: linear-gradient(180deg, #7035f0, #f528cb); */
-    /* position: fixed;
-    z-index: 1; */ 
+    position: fixed;
+    z-index: 1; 
+}
+
+.navbar__logo {
+    width: 40%;
+}
+
+.navbar__distojob {
+    width: 60%;
+    margin-left: 30px;
 }
 
 .navbar__container{
@@ -23,12 +32,11 @@
     align-items: center;
     justify-content: center;
     list-style: none;
-    margin-left: auto; 
-    
+    margin-right: 470px;
 }
 
 .navbar__item{
-    margin-right: 80px;
+    margin-right: 70px;
     cursor: pointer;
     font-weight: 500;
     font-size: 1.5rem;
@@ -42,19 +50,31 @@
 .navbar__buttons {
     display: flex;
     align-items: center;
-    margin-right: 30px;
+    width: 30%;
+    font-size: 1.2rem;
+    margin-right: 40px;
 }
 
 .navbar__btn {
-    margin-left: 15px;
-    border-radius: 8%;
     outline: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
+    padding: 15px;
 }
 
-.navbar__btn--background {
-    background-color: #4540DB;
+.navbar__btn--login {
+    background: none;
+    width: 50%;
+}
+
+.navbar__btn--signup {
+    /* background-color: #4540DB; */
+    background-color: #3a0c76; 
     color: #ffffff; 
+    width:  50%;
+    border-radius: 10px;
+}
+
+.navbar__btn--signup:hover {
+    background-color: #5812b3;
 }

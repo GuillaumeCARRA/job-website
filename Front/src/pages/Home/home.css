@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    margin-top: 70px;
+    margin-top: 90px;
 }
 
 /* .home_search__input {
@@ -55,7 +55,6 @@
     padding: 15px; 
     border: none ;  
     width: 450px;
-    
 }
 
 .home_search__input-field--border {

@@ -3,7 +3,7 @@
     height: 100px;
     /* background: linear-gradient(180deg, #7035f0, #f528cb); */
     position: fixed;
-    z-index: 1; 
+    z-index: 999; 
 }
 
 .navbar__logo {

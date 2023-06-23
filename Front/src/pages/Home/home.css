@@ -3,11 +3,80 @@
     height: 100vh;
 }
 
+
+
 .home__container{
     /* margin-left: auto;
     margin-right: auto; */
     padding-top: 200px;
 }
+
+.home__bigtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home__title {
+   text-align: center;
+   font-size: 3rem;
+   width: 45%; 
+}
+
+.home__title span {
+    color: #3a0c76;
+    font-size: 3.5rem;
+}
+
+.home__totaljob {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 45px;
+}
+
+.home__numberjob {
+    font-size: 1.35rem;
+}
+
+.home_search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 70px;
+}
+
+/* .home_search__input {
+    
+} */
+
+.home_search__input-field {
+    padding: 15px; 
+    border: none ;  
+    width: 450px;
+    
+}
+
+.home_search__input-field--border {
+    border-left: 2px solid gray;
+}
+
+.home_search__btn {
+    width: 6%;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #3a0c76;
+    outline: none;
+    border: none;
+    color: #ffffff;
+    position: absolute;
+    right: 25%;
+}
+
+
+
 /* 
 .home__left{
     margin-left: 10px;

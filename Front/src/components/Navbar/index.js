@@ -1,4 +1,8 @@
 import React from 'react';
+
+import logo from '../../assets/images/distojoblogo.png'
+
+
 import './navbar.css';
 
 function Navbar() {
@@ -6,7 +10,11 @@ function Navbar() {
     <header className='navbar'>
         <div className='navbar__container'>
             <div className='navbar__logo'>
-                logo
+                <img 
+                    src={logo} 
+                    alt="logo distojob" 
+                    className='navbar__distojob'
+                />
             </div>
             <div className='navbar__menu'>
                 <ul className='navbar__list'>
@@ -28,8 +36,8 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbar__buttons">
-                    <button className='navbar__btn'>Se connecter</button>
-                    <button className='navbar__btn navbar__btn--background'>S'inscrire</button>
+                    <button className='navbar__btn navbar__btn--login'>Se connecter</button>
+                    <button className='navbar__btn navbar__btn--signup'>S'inscrire</button>
             </div>
         </div>
     </header>

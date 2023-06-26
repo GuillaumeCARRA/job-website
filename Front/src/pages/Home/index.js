@@ -44,7 +44,7 @@ function Home() {
             <div className='home__solutions'>
               <div className='home__titlesolution'>
                 <h2 className='home__subtitle'>
-                  Une Plateforme Plusieurs <span>Catégorie</span>
+                  Une Plateforme Plusieurs <span>Catégories</span>
                 </h2>
               </div>
                 <div className='home__cards'>

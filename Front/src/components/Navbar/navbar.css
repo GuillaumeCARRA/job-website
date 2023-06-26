@@ -68,13 +68,14 @@
 }
 
 .navbar__btn--signup {
-    /* background-color: #4540DB; */
-    background-color: #3a0c76; 
+    background-color: #4540DB;
+    /* background-color: #3a0c76;  */
     color: #ffffff; 
     width:  50%;
     border-radius: 10px;
 }
 
 .navbar__btn--signup:hover {
-    background-color: #5812b3;
+    /* background-color: #5812b3; */
+    background-color: #6560f8;
 }

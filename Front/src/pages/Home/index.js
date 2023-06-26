@@ -12,7 +12,7 @@ function Home() {
               <h1 
                 className='home__title'
               >
-                Trouver votre emploi à distance en France grâce à <span>DistoJob</span>
+                Trouver votre emploi à distance en France grâce à <span>DistoJob.</span>
               </h1>
             </div>
             <div className='home__totaljob'>
@@ -44,7 +44,7 @@ function Home() {
             <div className='home__solutions'>
               <div className='home__titlesolution'>
                 <h2 className='home__subtitle'>
-                  Une Plateforme Plusieurs <span>Catégories</span>
+                  Une Plateforme Plusieurs <span>Catégories.</span>
                 </h2>
               </div>
                 <div className='home__cards'>
@@ -122,7 +122,15 @@ function Home() {
                   </div>
                 </div>
             </div>
-
+          </section>
+          <section>
+            <div className='home__latest'>
+              <div className='home__latest-title'>
+                <h2 className='home__latest-subtitle'>
+                  Nos Dernières <span>Offres.</span>
+                </h2>
+              </div>
+            </div>
           </section>
         </div>
        

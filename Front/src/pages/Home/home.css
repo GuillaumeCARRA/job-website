@@ -87,15 +87,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 .home__subtitle {
-
+   padding-top: 80px;
+   font-size: 2.6rem;
+   width: 20%;
+   text-align: center;
+   line-height: 1.5;
 }
 
 .home__subtitle span {
     color: #3a0c76;
-    /* font-size: 3.5rem; */
+    /* font-size: 2.6rem; */
 } 
 
 .home__cards {

@@ -130,6 +130,193 @@ function Home() {
                   Nos Dernières <span>Offres.</span>
                 </h2>
               </div>
+              <div className='home__latest-cards'>
+                {/* Card 1 */}
+                <div className='home__latest-card'>
+                  <div className='home__latest-card-image'>
+                    <img
+                      src='image-url'
+                      alt='Company Logo'
+                      className='home__latest-card-image'
+                    />
+                  </div>
+                  <div className='home__latest-card-details'>
+                    <h3 className='home__latest-card-company'>Company Name</h3>
+                    <h2 className='home__latest-card-jobtitle'>Job Title</h2>
+                    <h3 className='home__latest-card-employment'>CDI</h3>
+                    <p className='home__latest-card-description'>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                      Praesent et nibh tincidunt, lobortis ante quis, sodales mauris. 
+                      Nunc dui lectus, luctus sed tempus a, rutrum a sem. 
+                      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    </p>
+                    <button className='home__latest-card-button'>
+                      Postuler
+                    </button>
+                  </div>
+                </div>
+                <div className='home__latest-card'>
+                  <div className='home__latest-card-image'>
+                    <img
+                      src='image-url'
+                      alt='Company Logo'
+                      className='home__latest-card-image'
+                    />
+                  </div>
+                  <div className='home__latest-card-details'>
+                    <h3 className='home__latest-card-company'>Company Name</h3>
+                    <h2 className='home__latest-card-jobtitle'>Job Title</h2>
+                    <h3 className='home__latest-card-employment'>CDI</h3>
+                    <p className='home__latest-card-description'>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                      Praesent et nibh tincidunt, lobortis ante quis, sodales mauris. 
+                      Nunc dui lectus, luctus sed tempus a, rutrum a sem. 
+                      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    </p>
+                    <button className='home__latest-card-button'>
+                      Postuler
+                    </button>
+                  </div>
+                </div>
+                <div className='home__latest-card'>
+                  <div className='home__latest-card-image'>
+                    <img
+                      src='image-url'
+                      alt='Company Logo'
+                      className='home__latest-card-image'
+                    />
+                  </div>
+                  <div className='home__latest-card-details'>
+                    <h3 className='home__latest-card-company'>Company Name</h3>
+                    <h2 className='home__latest-card-jobtitle'>Job Title</h2>
+                    <h3 className='home__latest-card-employment'>CDI</h3>
+                    <p className='home__latest-card-description'>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                      Praesent et nibh tincidunt, lobortis ante quis, sodales mauris. 
+                      Nunc dui lectus, luctus sed tempus a, rutrum a sem. 
+                      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    </p>
+                    <button className='home__latest-card-button'>
+                      Postuler
+                    </button>
+                  </div>
+                </div>
+                <div className='home__latest-card'>
+                  <div className='home__latest-card-image'>
+                    <img
+                      src='image-url'
+                      alt='Company Logo'
+                      className='home__latest-card-image'
+                    />
+                  </div>
+                  <div className='home__latest-card-details'>
+                    <h3 className='home__latest-card-company'>Company Name</h3>
+                    <h2 className='home__latest-card-jobtitle'>Job Title</h2>
+                    <h3 className='home__latest-card-employment'>CDI</h3>
+                    <p className='home__latest-card-description'>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                      Praesent et nibh tincidunt, lobortis ante quis, sodales mauris. 
+                      Nunc dui lectus, luctus sed tempus a, rutrum a sem. 
+                      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    </p>
+                    <button className='home__latest-card-button'>
+                      Postuler
+                    </button>
+                  </div>
+                </div>
+                <div className='home__latest-card'>
+                  <div className='home__latest-card-image'>
+                    <img
+                      src='image-url'
+                      alt='Company Logo'
+                      className='home__latest-card-image'
+                    />
+                  </div>
+                  <div className='home__latest-card-details'>
+                    <h3 className='home__latest-card-company'>Company Name</h3>
+                    <h2 className='home__latest-card-jobtitle'>Job Title</h2>
+                    <h3 className='home__latest-card-employment'>CDI</h3>
+                    <p className='home__latest-card-description'>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                      Praesent et nibh tincidunt, lobortis ante quis, sodales mauris. 
+                      Nunc dui lectus, luctus sed tempus a, rutrum a sem. 
+                      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    </p>
+                    <button className='home__latest-card-button'>
+                      Postuler
+                    </button>
+                  </div>
+                </div>
+                <div className='home__latest-card'>
+                  <div className='home__latest-card-image'>
+                    <img
+                      src='image-url'
+                      alt='Company Logo'
+                      className='home__latest-card-image'
+                    />
+                  </div>
+                  <div className='home__latest-card-details'>
+                    <h3 className='home__latest-card-company'>Company Name</h3>
+                    <h2 className='home__latest-card-jobtitle'>Job Title</h2>
+                    <h3 className='home__latest-card-employment'>CDI</h3>
+                    <p className='home__latest-card-description'>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                      Praesent et nibh tincidunt, lobortis ante quis, sodales mauris. 
+                      Nunc dui lectus, luctus sed tempus a, rutrum a sem. 
+                      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    </p>
+                    <button className='home__latest-card-button'>
+                      Postuler
+                    </button>
+                  </div>
+                </div>
+                <div className='home__latest-card'>
+                  <div className='home__latest-card-image'>
+                    <img
+                      src='image-url'
+                      alt='Company Logo'
+                      className='home__latest-card-image'
+                    />
+                  </div>
+                  <div className='home__latest-card-details'>
+                    <h3 className='home__latest-card-company'>Company Name</h3>
+                    <h2 className='home__latest-card-jobtitle'>Job Title</h2>
+                    <h3 className='home__latest-card-employment'>CDI</h3>
+                    <p className='home__latest-card-description'>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                      Praesent et nibh tincidunt, lobortis ante quis, sodales mauris. 
+                      Nunc dui lectus, luctus sed tempus a, rutrum a sem. 
+                      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    </p>
+                    <button className='home__latest-card-button'>
+                      Postuler
+                    </button>
+                  </div>
+                </div>
+                <div className='home__latest-card'>
+                  <div className='home__latest-card-image'>
+                    <img
+                      src='image-url'
+                      alt='Company Logo'
+                      className='home__latest-card-image'
+                    />
+                  </div>
+                  <div className='home__latest-card-details'>
+                    <h3 className='home__latest-card-company'>Company Name</h3>
+                    <h2 className='home__latest-card-jobtitle'>Job Title</h2>
+                    <h3 className='home__latest-card-employment'>CDI</h3>
+                    <p className='home__latest-card-description'>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                      Praesent et nibh tincidunt, lobortis ante quis, sodales mauris. 
+                      Nunc dui lectus, luctus sed tempus a, rutrum a sem. 
+                      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    </p>
+                      <button className='home__latest-card-button'>
+                        Postuler
+                      </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </div>

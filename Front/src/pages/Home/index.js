@@ -137,6 +137,25 @@ function Home() {
                   Les Meilleures <span>Entreprises</span> Pour Votre Prochain <span>Job.</span>
                 </h2>
               </div>
+              <div className='home__company-cards'>
+                <div className='home__company-card'>
+                  <img
+                    src='image-url'
+                    alt='Background'
+                    className='home__company-card-image'
+                  />
+                  <div className='home__company-card-details'>
+                    <img 
+                      src='img'
+                      alt = 'logo entreprise'
+                      className='home__company-card-logo'
+                    />
+                    <h3 className='home__company-card-title'>Company Name</h3>
+                    <p className='home__company-card-num-job'>200 jobs</p>
+                    <button className='home___company-card-btn'>Voir emplois</button>
+                  </div>
+                </div>
+              </div>
             </div>
             {/* COMPANY END */}
           </section>
@@ -155,7 +174,6 @@ function Home() {
                     <img
                       src='image-url'
                       alt='Company Logo'
-                      className='home__latest-card-image'
                     />
                   </div>
                   <div className='home__latest-card-details'>

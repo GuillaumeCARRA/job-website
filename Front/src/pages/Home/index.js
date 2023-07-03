@@ -7,6 +7,7 @@ function Home() {
     <div className='home'>
         <Navbar />
         <div className='home__container'>
+          {/* SEARCH START */}
           <section>
             <div className='home__bigtitle'> 
               <h1 
@@ -39,7 +40,9 @@ function Home() {
                 Rechercher
               </button>
             </div>
+            {/* SEARCH END */}
           </section>
+         {/* ALL CATEGORIES START */}
           <section>
             <div className='home__solutions'>
               <div className='home__titlesolution'>
@@ -50,7 +53,7 @@ function Home() {
                 <div className='home__cards'>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> {/* Remplacez "fa-icon" par la classe d'icône souhaitée */}
+                      <i className='fa fa-icon'>test</i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -59,7 +62,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> {/* Remplacez "fa-icon" par la classe d'icône souhaitée */}
+                      <i className='fa fa-icon'>test</i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -68,7 +71,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> {/* Remplacez "fa-icon" par la classe d'icône souhaitée */}
+                      <i className='fa fa-icon'>test</i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -77,7 +80,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> {/* Remplacez "fa-icon" par la classe d'icône souhaitée */}
+                      <i className='fa fa-icon'>test</i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -86,7 +89,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> {/* Remplacez "fa-icon" par la classe d'icône souhaitée */}
+                      <i className='fa fa-icon'>test</i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -95,7 +98,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> {/* Remplacez "fa-icon" par la classe d'icône souhaitée */}
+                      <i className='fa fa-icon'>test</i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -104,7 +107,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> {/* Remplacez "fa-icon" par la classe d'icône souhaitée */}
+                      <i className='fa fa-icon'>test</i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -113,7 +116,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> {/* Remplacez "fa-icon" par la classe d'icône souhaitée */}
+                      <i className='fa fa-icon'>test</i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -122,7 +125,9 @@ function Home() {
                   </div>
                 </div>
             </div>
+          {/* ALL CATEGORIES START */}
           </section>
+          {/* LATEST OFFER START */}
           <section>
             <div className='home__latest'>
               <div className='home__latest-title'>
@@ -318,6 +323,7 @@ function Home() {
                 </div>
               </div>
             </div>
+            {/* LATEST OFFER END */}
           </section>
         </div>
        

@@ -127,6 +127,19 @@ function Home() {
             </div>
           {/* ALL CATEGORIES START */}
           </section>
+          {/* COMPANY START */}
+          <section>
+            <div className='home__company'>
+              <div className='home__company-title'>
+                <h2 
+                  className='home__company-subtitle'
+                >
+                  Les Meilleures <span>Entreprises</span> Pour Votre Prochain <span>Job.</span>
+                </h2>
+              </div>
+            </div>
+            {/* COMPANY END */}
+          </section>
           {/* LATEST OFFER START */}
           <section>
             <div className='home__latest'>

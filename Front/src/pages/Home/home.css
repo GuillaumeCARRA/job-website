@@ -185,6 +185,17 @@
     padding: 25px;
     position: relative;
     box-shadow: 8px 4px 4px rgba(0, 0, 0, 0.1);
+    transition: transform .5s ease;
+}
+
+/* The scale(1.05) property slightly enlarges the card 
+   to 105% of its original size, creating a zoom effect. 
+   The translateY(-10px) property moves the map 10 pixels up.
+   By combining these two transformations, one obtains the effect 
+   of the card coming out towards the user when it is hovered over. 
+*/
+.home__latest-card:hover {
+    transform: scale(1.05) translateY(-10px);
 }
   
 .home__latest-card-image {

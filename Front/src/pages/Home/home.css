@@ -185,7 +185,7 @@
     padding: 25px;
     position: relative;
     box-shadow: 8px 4px 4px rgba(0, 0, 0, 0.1);
-    transition: transform .5s ease;
+    transition: transform .3s ease;
 }
 
 /* The scale(1.05) property slightly enlarges the card 
@@ -244,6 +244,7 @@
     background-color: #4540DB;
     color: white;
     border: none;
+    outline: none;
     border-radius: 5px;
     cursor: pointer;
     display: flex;

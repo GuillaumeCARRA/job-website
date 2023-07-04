@@ -167,6 +167,57 @@
     color: #4540DB;
 }
 
+.home__company-cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 25px;
+}
+
+.home__company-card{
+    border: 1px solid lightgray;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.home__company-card-image{
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.home__company-card-details {
+    position: relative;
+}
+
+.home__company-card-logo{
+    border: 6px solid #ffffff;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    padding: .4rem;
+    position: absolute;
+    bottom: 100%;
+    left: 5%;
+    background-color: #4540DB;
+}
+
+.home__company-card-title{
+
+}
+
+.home__company-card-num-job{
+
+}
+
+.home___company-card-btn{
+
+}
+
 /* HOME COMPANY END */
 
 /* HOME LATEST START */

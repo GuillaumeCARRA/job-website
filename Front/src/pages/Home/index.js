@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../../components/Navbar';
 
 import logo from '../../assets/images/logo.jpg';
-import Test from '../../assets/images/test.jpeg'; 
+import distojob from '../../assets/images/distojoblogo.png'; 
 
 import './home.css';
 
@@ -144,53 +144,98 @@ function Home() {
               <div className='home__company-cards'>
                 <div className='home__company-card'>
                   <img
-                    src={Test}
+                    src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt='Background'
                     className='home__company-card-image'
                   />
                   <div className='home__company-card-details'>
-                    <img 
-                      src={logo}
-                      alt = 'logo entreprise'
-                      className='home__company-card-logo'
-                    />
                     <h3 className='home__company-card-title'>Company Name</h3>
-                    <p className='home__company-card-num-job'>200 jobs</p>
-                    <button className='home___company-card-btn'>Voir emplois</button>
+                    <p className='home__company-card-description'>
+                      Make a card for company Make a card for company 
+                      Make a card for company Make a card for company 
+                    </p>
+                    <span className='home__company-card-num-job'>200 jobs</span>
+                    <button className='home___company-card-btn'>Voir offres</button>
                   </div>
                 </div>
                 <div className='home__company-card'>
                   <img
-                    src={Test}
+                    src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt='Background'
                     className='home__company-card-image'
                   />
                   <div className='home__company-card-details'>
-                    <img 
-                      src={logo}
-                      alt = 'logo entreprise'
-                      className='home__company-card-logo'
-                    />
                     <h3 className='home__company-card-title'>Company Name</h3>
-                    <p className='home__company-card-num-job'>200 jobs</p>
-                    <button className='home___company-card-btn'>Voir emplois</button>
+                    <p className='home__company-card-description'>
+                      Make a card for company Make a card for company 
+                      Make a card for company Make a card for company 
+                    </p>
+                    <span className='home__company-card-num-job'>200 jobs</span>
+                    <button className='home___company-card-btn'>Voir offres</button>
                   </div>
                 </div>
                 <div className='home__company-card'>
                   <img
-                    src={Test}
+                    src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt='Background'
                     className='home__company-card-image'
                   />
                   <div className='home__company-card-details'>
-                    <img 
-                      src={logo}
-                      alt = 'logo entreprise'
-                      className='home__company-card-logo'
-                    />
                     <h3 className='home__company-card-title'>Company Name</h3>
-                    <p className='home__company-card-num-job'>200 jobs</p>
-                    <button className='home___company-card-btn'>Voir emplois</button>
+                    <p className='home__company-card-description'>
+                      Make a card for company Make a card for company 
+                      Make a card for company Make a card for company 
+                    </p>
+                    <span className='home__company-card-num-job'>200 jobs</span>
+                    <button className='home___company-card-btn'>Voir offres</button>
+                  </div>
+                </div>
+                <div className='home__company-card'>
+                  <img
+                    src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt='Background'
+                    className='home__company-card-image'
+                  />
+                  <div className='home__company-card-details'>
+                    <h3 className='home__company-card-title'>Company Name</h3>
+                    <p className='home__company-card-description'>
+                      Make a card for company Make a card for company 
+                      Make a card for company Make a card for company 
+                    </p>
+                    <span className='home__company-card-num-job'>200 jobs</span>
+                    <button className='home___company-card-btn'>Voir offres</button>
+                  </div>
+                </div>
+                <div className='home__company-card'>
+                  <img
+                    src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt='Background'
+                    className='home__company-card-image'
+                  />
+                  <div className='home__company-card-details'>
+                    <h3 className='home__company-card-title'>Company Name</h3>
+                    <p className='home__company-card-description'>
+                      Make a card for company Make a card for company 
+                      Make a card for company Make a card for company 
+                    </p>
+                    <span className='home__company-card-num-job'>200 jobs</span>
+                    <button className='home___company-card-btn'>Voir offres</button>
+                  </div>
+                </div>
+                <div className='home__company-card'>
+                  <img
+                    src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt='Background'
+                    className='home__company-card-image'
+                  />
+                  <div className='home__company-card-details'>
+                    <h3 className='home__company-card-title'>Company Name</h3>
+                    <p className='home__company-card-description'>
+                      Make a card for company Make a card for company 
+                      Make a card for company Make a card for company 
+                    </p>
+                    <span className='home__company-card-num-job'>200 jobs</span>
+                    <button className='home___company-card-btn'>Voir offres</button>
                   </div>
                 </div>
               </div>

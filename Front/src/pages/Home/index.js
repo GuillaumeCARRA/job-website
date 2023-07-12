@@ -1,8 +1,6 @@
 import React from 'react'; 
 import Navbar from '../../components/Navbar';
-
-import logo from '../../assets/images/logo.jpg';
-import distojob from '../../assets/images/distojoblogo.png'; 
+import Footer from '../../components/Footer';
 
 import './home.css';
 

@@ -438,7 +438,7 @@ function Home() {
             {/* LATEST OFFER END */}
           </section>
         </div>
-       
+        <Footer />
     </div>
   )
 }

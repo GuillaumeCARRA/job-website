@@ -343,4 +343,5 @@
 .home__latest-card:hover,
 .home__company-card:hover{
     border: 2px solid #4540DB;
+    transition: .3s ease-in;
 }

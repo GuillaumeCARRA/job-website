@@ -43,9 +43,14 @@
     margin-top: 90px;
 }
 
-/* .home_search__input {
-    
-} */
+.home_search__input input {
+    padding-left: 55px;
+}
+.icon__input {
+    position: absolute;
+    top: 15%;
+    margin-left: 15px;
+}
 
 .home_search__input-field {
     padding: 15px; 
@@ -54,6 +59,10 @@
     width: 450px;
     outline: none;
 }
+
+/* .home_search__input-field::placeholder {
+    padding-left: 20px;
+} */
 
 .home_search__input-field--border {
     border-left: 1px solid gray;
@@ -182,6 +191,8 @@
     border-radius: 12px;
     height: 360px;
 }
+
+
 
 .home__company-card-image{
     width: 100%;

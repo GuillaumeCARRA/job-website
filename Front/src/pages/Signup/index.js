@@ -6,16 +6,16 @@ import './signup.css';
 
 function SignUp() {
   return (
-    <div className='signup__container'>
-        <div className='signup__content'>
-            <div className='signup__logo'>
+    <div className='form__container'>
+        <div className='form__content'>
+            <div className='form__logo'>
                 <img 
                     src={logo}
                     alt="logo distojob"
-                    className='signup__img'
+                    className='form__img'
                 />
             </div>
-            <h2 className='signup__title'>Créer son compte</h2>
+            <h2 className='form__title'>Créer son compte</h2>
             <form>
                 <input className= "form__input" type="text"  placeholder='Prénom'/>
                 <input className= "form__input" type="text"  placeholder='Nom'/>
@@ -29,4 +29,4 @@ function SignUp() {
   )
 }
 
-export default SignUp
+export default SignUp;

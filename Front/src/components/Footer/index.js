@@ -1,5 +1,13 @@
 import React from 'react';
 
+import { 
+    FaTiktok, 
+    FaTwitter, 
+    FaSquareFacebook, 
+    FaLinkedin, 
+    FaInstagram  
+} from "react-icons/fa6";
+
 import './footer.css';
 
 
@@ -80,10 +88,11 @@ function Footer() {
                     N'hésitez pas à nous suivre sur les réseaux
                 </h1>
                 <div className="footerIcons">
-                    {/* <img src="./img/facebook.png" alt="fb logo" class="footerIcon">
-                    <img src="./img/twitter.png" alt="twiter logo" class="footerIcon">
-                    <img src="./img/instagram.png" alt="insta logo" class="footerIcon">
-                    <img src="./img/whatsapp.png" alt="whatsapp logo" class="footerIcon"> */}
+                    <FaTiktok className='footerIcon'/>
+                    <FaTwitter class="footerIcon"/>
+                    <FaSquareFacebook class="footerIcon"/>
+                    <FaLinkedin class="footerIcon"/>
+                    <FaInstagram class="footerIcon"/>
                 </div>
             </div>
             <div className="footerRightMenu">

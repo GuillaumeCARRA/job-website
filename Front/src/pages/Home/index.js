@@ -1,6 +1,23 @@
 import React from 'react'; 
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
+import Footer from '../../components/Footer'
+
+import { 
+  FcBriefcase, 
+  FcFactory, 
+  FcAssistant, 
+  FcConferenceCall, 
+  FcLibrary, 
+  FcBarChart, 
+  FcCommandLine,  
+  FcGlobe,
+  FcDepartment 
+} from "react-icons/fc"; 
+
+import { 
+  TfiSearch,
+  TfiLocationPin 
+} from "react-icons/tfi";
 
 import './home.css';
 
@@ -23,6 +40,11 @@ function Home() {
             </div>
             <div className='home_search'>
               <div className='home_search__input'>
+                <TfiSearch 
+                  className='icon__input'
+                  color="#4540DB"
+                  size="32px"
+                />
                 <input
                   className='home_search__input-field'
                   type='text'
@@ -30,6 +52,11 @@ function Home() {
                 />
               </div>
               <div className='home_search__input'>
+                <TfiLocationPin 
+                  className='icon__input'
+                  color="#4540DB"
+                  size="32px"
+                />
                 <input
                   className='home_search__input-field home_search__input-field--border'
                   type='text'
@@ -49,13 +76,13 @@ function Home() {
             <div className='home__solutions'>
               <div className='home__titlesolution'>
                 <h2 className='home__subtitle'>
-                  Une Plateforme Plusieurs <span>Catégories.</span>
+                  Une Plateforme Plusieurs <span>Métiers.</span>
                 </h2>
               </div>
                 <div className='home__cards'>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> 
+                      <i className='fa fa-icon'> <FcDepartment size="45px"/> </i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -64,7 +91,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> 
+                      <i className='fa fa-icon'> <FcFactory size="45px"/> </i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -73,7 +100,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> 
+                      <i className='fa fa-icon'> <FcAssistant size="45px"/> </i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -82,7 +109,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> 
+                      <i className='fa fa-icon'> <FcConferenceCall size="45px"/> </i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -91,7 +118,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> 
+                      <i className='fa fa-icon'> <FcLibrary size="45px"/> </i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -100,7 +127,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> 
+                      <i className='fa fa-icon'> <FcBarChart size="45px"/> </i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -109,7 +136,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> 
+                      <i className='fa fa-icon'> <FcCommandLine size="45px"/> </i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>
@@ -118,7 +145,7 @@ function Home() {
                   </div>
                   <div className='home__card'>
                     <div className='home__card-icon'>
-                      <i className='fa fa-icon'>test</i> 
+                      <i className='fa fa-icon'> <FcGlobe size="45px"/> </i> 
                     </div>
                     <div className='home__card-content'>
                       <h3 className='home__card-title'>Titre de la carte</h3>

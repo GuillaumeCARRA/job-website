@@ -6,6 +6,7 @@ import {
 import Home from '../src/pages/Home';
 import SignUp from './pages/Signup';
 import Login from './pages/Login';
+import JobSeekerProfile from './pages/EmployeeProfile';
 
 import './App.css';
 
@@ -24,6 +25,10 @@ function App() {
         <Route 
           path="/login" 
           element={<Login />}
+        />
+        <Route 
+          exact path ="/profile"
+          element={<JobSeekerProfile />}
         />
       </Routes>
     </div>

@@ -64,14 +64,13 @@
 
 .navbar__btn--login {
     background: none;
-    width: 50%;
+    margin-right: 20px;
 }
 
 .navbar__btn--signup {
     background-color: #4540DB;
     /* background-color: #3a0c76;  */
     color: #ffffff; 
-    width:  50%;
     border-radius: 10px;
 }
 

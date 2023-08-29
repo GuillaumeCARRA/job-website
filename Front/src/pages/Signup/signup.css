@@ -9,7 +9,7 @@
 
 .form__content {
     background-color: #ffffff;
-    padding: 40px 60px;
+    padding: 50px 40px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -26,10 +26,13 @@
    display: flex;
    align-items: center;
    justify-content: center;
+  
 }
 
 .form__img {
     width: 75%;
+    margin-left: 50px;
+    cursor: pointer;
 }
 
 .form__title {

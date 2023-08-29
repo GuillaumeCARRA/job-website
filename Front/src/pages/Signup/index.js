@@ -40,11 +40,13 @@ function SignUp() {
     <div className='form__container'>
         <div className='form__content'>
             <div className='form__logo'>
+              <Link to="/">
                 <img 
                     src={logo}
                     alt="logo distojob"
                     className='form__img'
-                />
+                  />
+              </Link>
             </div>
             <h2 className='form__title'>Créer son compte</h2>
             <form onSubmit={handleSubmit}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import logo from '../../assets/images/distojoblogo.png'
 
@@ -36,8 +37,16 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbar__buttons">
-                    <button className='navbar__btn navbar__btn--login'>Se connecter</button>
-                    <button className='navbar__btn navbar__btn--signup'>S'inscrire</button>
+                <Link to="/login">
+                    <button className='navbar__btn navbar__btn--login'>
+                        Se connecter
+                    </button>
+                </Link>
+                <Link to="/signup">
+                    <button className='navbar__btn navbar__btn--signup'>
+                        S'inscrire
+                    </button>
+                </Link>  
             </div>
         </div>
     </header>

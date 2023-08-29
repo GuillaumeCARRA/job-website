@@ -1,10 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
+import instance from '../../axios';
 
 import logo from '../../assets/images/distojoblogo.png';
 
 
+
 function Login() {
+
+  const navigate = useNavigate();  
+
+  const handleSignIn = async(e) => {
+    e.preventDefault(); 
+
+
+    const formData = {
+        email: e.target[0].value,
+        password: e.target[1].value,
+    }
+    
+   try {
+
+    const response = await instance.get('/profile', formData);
+    const { data, token } = response.data; 
+
+    console.log('User connected:', data);
+    console.log('Token:', token);
+
+    navigate('/profile'); 
+
+    } catch (error) {
+        console.error('Error connecting user:', error); 
+    }
+
+  }  
+
   return (
     <div className='form__container'>
         <div className='form__content'>
@@ -19,9 +49,9 @@ function Login() {
 
             </div>
             <h2 className='form__title'>Se connecter</h2>
-            <form>
-                <input className= "form__input" type="email" placeholder='Email'/>
-                <input className= "form__input" type="password" placeholder='Mot de Passe'/>
+            <form onSubmit={handleSignIn}>
+                <input className= "form__input" type="email" name="email" placeholder='Email' required/>
+                <input className= "form__input" type="password" name="password" placeholder='Mot de Passe' required/>
                 <button className='form__btn'>Je me connecte</button>
             </form>
             <p className='form__signin'>Vous n'avez pas de compte ? <Link to='/signup'>Enregistrez-vous ici</Link></p>

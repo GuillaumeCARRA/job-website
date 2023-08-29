@@ -8,7 +8,7 @@ import './signup.css';
 
 function SignUp() {
 
-  // const navigate = useNavigate(); 
+  const navigate = useNavigate(); 
 
   const handleSubmit = async(e) => {
     e.preventDefault(); 
@@ -30,7 +30,7 @@ function SignUp() {
        console.log('User registered:', data);
        console.log('Token:', token);
 
-      //  navigate('/login');
+      navigate('/profile');
     } catch (error) {
        console.error('Error registering user:', error);
     }

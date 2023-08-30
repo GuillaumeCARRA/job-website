@@ -56,7 +56,7 @@ function SignUp() {
                 <input className= "form__input" type="password" name="password" placeholder='Mot de Passe' required/>
                 <button className='form__btn'>Je m'inscris</button>
             </form>
-            <p className='form__signin'>Vous possédez déjà un compte ? <Link to='/login'>Connectez-vous</Link></p>
+            <p className='form__signin'>Vous possédez déjà un compte ? <Link to='/signup/log'>Connectez-vous</Link></p>
         </div>
     </div>
   )

@@ -21,10 +21,10 @@ function Login() {
     
    try {
 
-    const response = await instance.get('/profile', formData);
-    const { data, token } = response.data; 
+    const response = await instance.post('/signup/log', formData);
+    const { user, token } = response.data; 
 
-    console.log('User connected:', data);
+    console.log('User connected:', user);
     console.log('Token:', token);
 
     navigate('/profile'); 
@@ -54,7 +54,7 @@ function Login() {
                 <input className= "form__input" type="password" name="password" placeholder='Mot de Passe' required/>
                 <button className='form__btn'>Je me connecte</button>
             </form>
-            <p className='form__signin'>Vous n'avez pas de compte ? <Link to='/signup'>Enregistrez-vous ici</Link></p>
+            <p className='form__signin'>Vous n'avez pas de compte ? <Link to='/signup/sign'>Enregistrez-vous ici</Link></p>
         </div>
     </div>
   )

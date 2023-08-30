@@ -14,18 +14,18 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route 
+        {/* <Route 
           exact path="/"
           element={<Home />}
         />
         <Route 
-          exact path="/signup"
+          exact path="/signup/sign"
           element={<SignUp />}
         />
         <Route 
-          path="/login" 
+          exact path="/signup/log" 
           element={<Login />}
-        />
+        /> */}
         <Route 
           exact path ="/profile"
           element={<JobSeekerProfile />}

@@ -37,12 +37,12 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbar__buttons">
-                <Link to="/login">
+                <Link to="/signup/log">
                     <button className='navbar__btn navbar__btn--login'>
                         Se connecter
                     </button>
                 </Link>
-                <Link to="/signup">
+                <Link to="/signup/sign">
                     <button className='navbar__btn navbar__btn--signup'>
                         S'inscrire
                     </button>

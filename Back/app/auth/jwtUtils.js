@@ -14,7 +14,8 @@ module.exports = {
             console.log('decoded inside jwtUtils', decoded);
             return decoded; 
         } catch (error) {
-            throw new Error('Invalid token');
+            console.log(error);
+            return { error: 'Invalid token' };
         }
     }
 }

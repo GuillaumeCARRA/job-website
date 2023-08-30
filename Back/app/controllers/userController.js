@@ -183,7 +183,7 @@ module.exports = {
             const decodedToken = verifyToken(token);
             console.log('decoded', decodedToken);
           
-            const decodedUserId = decodedToken.id;
+            const decodedUserId = parseInt(decodedToken.id);
             console.log('decodedUserId not parse', decodedToken.id);
 
             if (decodedUserId !== userId) {
@@ -216,7 +216,7 @@ module.exports = {
 
         } catch (error) {
             console.log(error);
-            response.status(500).json({error});
+            response.status(401).json({ error: "Erreur lors de la vérification du token ou de la suppression de l'utilisateur" });
         }
     }
 }

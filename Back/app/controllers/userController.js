@@ -103,7 +103,7 @@ module.exports = {
 
                     const token = generateToken({ id: checkUser.id, email: checkUser.email, first_name: checkUser.first_name, last_name: checkUser.last_name });
                     console.log('function generate', token);
-                    response.status(200).json({ token, ok: "connexion ok" });
+                    response.status(200).json({ token, user: checkUser, ok: "connexion ok" });
               }
 
             }

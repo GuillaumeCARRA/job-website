@@ -1,8 +1,13 @@
 import React from 'react';
+import NavProfile from '../../components/Navbar/navProfile';
 
 function JobSeekerProfile() {
   return (
-    <div>JobSeekerProfile</div>
+    <div>
+      <NavProfile />
+      {/* <div>JobSeekerProfile</div> */}
+    </div>
+    
   )
 }
 

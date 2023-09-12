@@ -5,7 +5,7 @@ import logo from '../../assets/images/distojoblogo.png'
 
 
 import { 
-    FaRegBell, 
+    FaBell, 
     FaUserAlt, 
     FaSuitcase, 
     FaIndustry 
@@ -47,7 +47,7 @@ function NavProfile() {
               </li>
               <li className='navprofile__item'>
                 <div className='navprofile__icon-container'>
-                    <FaRegBell 
+                    <FaBell 
                         className='navprofile__icon' 
                         size="18px"
                     />

@@ -1,6 +1,8 @@
 import React from 'react';
 import NavProfile from '../../components/Navbar/navProfile';
 
+import './employeeProfile.css';
+
 function JobSeekerProfile() {
   return (
     <div>
@@ -18,33 +20,32 @@ function JobSeekerProfile() {
                   <span>CV visibile auprès des recruteurs</span>
                   <input type="checkbox" className='input__switch' id="visible" name="visible"/>
                   <label for="visible">
-                      <span className='input__switch-button'>
+                    <span className='input__switch__button'>
 
-                      </span>
+                    </span>
                   </label>
                 </div>
                 <div className="jobseeker__global__cv"> 
                   <div className='jobseeker__global__cv__seen'>
-                    <div>CV vu par</div>
+                    <span>CV vu par</span>
                     <div className="jobseeker__global__cv__seen__number">1</div>
-                    <div>recruteurs</div>
+                    <span>recruteurs</span>
                   </div>
                   <div className="jobseeker__global__cv__fields">
                     <div className='jobseeker__global__cv__fields__items'>
                       Poste actuel : <span>test</span>
                     </div> 
-                  </div>
-                  <div className="jobseeker__global__cv__fields">
                     <div className='jobseeker__global__cv__fields__items'>
                       Lieu de résidence : <span>test</span>
                     </div> 
-                  </div>
-                  <div className="jobseeker__global__cv__fields">
                     <div className='jobseeker__global__cv__fields__items'>
                       Statut : <span>test</span>
                     </div> 
                   </div>
                 </div>
+              </div>
+              <div className='jobseeker__logout-container'>
+                <button className='jobseeker__logout'>Se déconnecter</button>
               </div>
           </div>
         </div>

@@ -15,8 +15,7 @@
 .jobseeker__infos {
     border: 1px solid black; 
     border-radius: 10px;
-    height: 310px;
-    /* text-align: center; */
+    height: 320px;
 }
 
 .jobseeker__header {
@@ -31,9 +30,9 @@
     border-bottom: 1px solid grey;
 }
 
-.jobseeker__firstname {
+/* .jobseeker__firstname {
 
-}
+} */
 
 .jobseeker__global {
     padding: 20px;
@@ -135,13 +134,13 @@
     justify-content: space-around;
     height: 85px;
     min-width: 74px;
+    border: 2px solid #4540DB;
     border-radius: 10px;
     margin-right: 20px;
     padding: 5px 15px;
-    background-color: aqua;
+    /* background-color: aqua; */
     text-align: center;
     color: black;
-    
 }
 
 .jobseeker__global__cv__seen span {
@@ -151,6 +150,7 @@
 .jobseeker__global__cv__seen__number {
     font-size: 1.9rem;
     margin: 7px;
+    font-weight: bold;
 }
 
 .jobseeker__global__cv__fields {
@@ -174,12 +174,13 @@
 }
 
 .jobseeker__logout {
-    padding: 10px 30px;
+    padding: 12px 30px;
     background-color: #4540DB;
     color: white;
     border: none;
     outline: none;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 1.1rem;
 }
 

@@ -28,7 +28,7 @@ function JobSeekerProfile() {
                 <div className="jobseeker__global__cv"> 
                   <div className='jobseeker__global__cv__seen'>
                     <span>CV vu par</span>
-                    <div className="jobseeker__global__cv__seen__number">1</div>
+                    <div className="jobseeker__global__cv__seen__number">200</div>
                     <span>recruteurs</span>
                   </div>
                   <div className="jobseeker__global__cv__fields">

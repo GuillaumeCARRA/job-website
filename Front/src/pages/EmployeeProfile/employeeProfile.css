@@ -1,21 +1,22 @@
 .jobseeker__container {
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    position: relative;
+    display: flex;
+    align-items: center;
     width: 100%;
+    /* height: 41.8vw; */
+    background-color: #F6F7FC;
 }
 
 .jobseeker__data {
-    margin: 80px 150px;
+    margin: 80px 350px;
     width: 20%;
+    background-color: #ffff;
+    box-shadow: 7px 5px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
 }
 
 .jobseeker__infos {
-    border: 1px solid black; 
-    border-radius: 10px;
-    height: 320px;
+    
+    height: 380px;
 }
 
 .jobseeker__header {
@@ -23,11 +24,10 @@
     align-items: center;
     justify-content: center;
     padding: 25px 15px;
-    border-radius: 10px 10px 0 0;
     color: black;
     font-weight: 700;
     font-size: 18px;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #6560f8;
 }
 
 /* .jobseeker__firstname {
@@ -44,11 +44,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 30px;
+    margin-top: 7px;
+    margin-bottom: 45px;
 }
 
 .jobseeker__global__visible span {
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 /* .jobseeker__global__visible input {
@@ -97,7 +98,7 @@
 }
 
 .input__switch:not(:checked) + label .input__switch__button::before {
-    color: red;
+    color: black;
     content: "Non";
     left: 23px;
 }
@@ -132,9 +133,9 @@
 .jobseeker__global__cv__seen {
     flex-direction: column;
     justify-content: space-around;
-    height: 85px;
-    min-width: 74px;
-    border: 2px solid #4540DB;
+    height: 100px;
+    /* width: 90px; */
+    border: 2px solid #6560f8;
     border-radius: 10px;
     margin-right: 20px;
     padding: 5px 15px;
@@ -149,7 +150,7 @@
 
 .jobseeker__global__cv__seen__number {
     font-size: 1.9rem;
-    margin: 7px;
+    margin: 12px;
     font-weight: bold;
 }
 
@@ -158,7 +159,7 @@
     flex-direction: column;
     flex-grow: 1;
     justify-content: space-between;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .jobseeker__global__cv__fields__items span {
@@ -170,7 +171,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 35px;
 }
 
 .jobseeker__logout {
@@ -182,5 +183,53 @@
     border-radius: 10px;
     cursor: pointer;
     font-size: 1.1rem;
+}
+
+.jobseeker__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px 190px;
+    justify-items: center;
+    margin-left: -220px;
+}
+
+
+.jobseeker__card {
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    box-shadow: 7px 6px 4px rgba(0, 0, 0, 0.1);
+    width: 160%;
+    height: 165px;
+    background-color: #ffff;
+}
+
+.jobseeker__icon {
+    margin: 15px auto auto 20px;
+}
+
+.icon {
+
+}
+
+.jobseeker__card__content {
+    margin: 20px auto auto 20px;
+}
+
+.jobseeker__card__title {
+
+}
+
+.jobseeker__card_description {
+    color: #7f818b;
+}
+
+.jobseeker__logout:hover {
+    background-color: #6560f8;
+}
+
+.jobseeker__card:hover {
+    border-color:  #4540DB;
+    transition: all ease-in-out .3s
 }
 

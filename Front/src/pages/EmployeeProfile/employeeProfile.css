@@ -188,9 +188,10 @@
 .jobseeker__cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px 190px;
+    grid-gap: 40px 20px;
     justify-items: center;
     margin-left: -220px;
+    width: 50%;
 }
 
 
@@ -199,7 +200,7 @@
     border: 1px solid transparent;
     border-radius: 15px;
     box-shadow: 7px 6px 4px rgba(0, 0, 0, 0.1);
-    width: 160%;
+    width: 100%;
     height: 165px;
     background-color: #ffff;
 }
@@ -230,6 +231,41 @@
 
 .jobseeker__card:hover {
     border-color:  #4540DB;
-    transition: all ease-in-out .3s
+    transition: border-color ease-in-out .3s
 }
 
+.jobseeker__form__container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    background-color: #ffff;
+    overflow: visible;
+    
+    /* height: 300px; */
+}
+
+
+.jobseeker__form{
+    
+}
+.jobseeker__form__header{
+
+}
+.jobseeker__form__title{
+
+}
+.jobseeker__form__required{
+
+}
+.jobseeker__form__field{
+
+}
+.jobseeker__form__field__title{
+
+}
+.jobseeker__form__required row{
+
+}
+.jobseeker__form__contracts{
+
+}

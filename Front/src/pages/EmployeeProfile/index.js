@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavProfile from '../../components/Navbar/navProfile';
+import Modal from '../../components/Modal/modal';
 
 import './employeeProfile.css';
 
@@ -9,32 +10,84 @@ import {
 
 
 
-
-
+ 
 function JobSeekerProfile() {
 
-  const [cardOpen, setCardOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-
-
-  const handleCardOpen = () => {
-    if (!isEditing) {
-      setCardOpen(!cardOpen);
+  const cards = [
+    {
+      title: "Mes Critères De Recherche",
+      description: "Je précise mes critères de recherche",
+    },
+    {
+      title: "Mes informations",
+      description: "Je précise mes informations"
+    }, 
+    {
+      title: "3eme carte",
+      description: "Je suis la 3eme carte"
+    },
+    {
+      title: "4eme carte",
+      description: "Je suis la 4eme carte"
     }
+  ];
+
+
+  // const [modalOpen, setModalOpen] = useState(Array(cards.length).fill(false));
+  // console.log(modalOpen);
+  // const [activeCardIndex, setActiveCardIndex] = useState(null);
+  // console.log(activeCardIndex);
+
+  // const handleCardOpen = (index) => {
+  //   setActiveCardIndex(index);
+  //   const newModalOpen = [...modalOpen];
+  //   newModalOpen[index] = true;
+  //   setModalOpen(newModalOpen);
+  // };
+
+  // const handleModalClose = () => {
+  //   setActiveCardIndex(null);
+  //   const newModalOpen = modalOpen.map(() => false);
+  //   setModalOpen(newModalOpen);
+  // };
+
+  const [activeCardIndex, setActiveCardIndex] = useState(null);
+
+  const handleCardClick = (index) => {
+    setActiveCardIndex(index);
   };
 
-  const handleInputChange = (e) => {
-    setIsEditing(!isEditing);
-    e.stopPropagation(); // Empêche la propagation du clic à la carte
+  const handleModalClose = () => {
+    setActiveCardIndex(null);
   };
 
-  const handleSave = () => {
+
+
+  // const [cardOpen, setCardOpen] = useState(false);
+  // const [isEditing, setIsEditing] = useState(false);
+
+
+  // const handleCardOpen = () => {
+  //   if (!isEditing) {
+  //     setCardOpen(!cardOpen);
+  //   }
+  // };
+
+  // const handleInputChange = (e) => {
+  //   setIsEditing(!isEditing);
+  //   e.stopPropagation(); // Empêche la propagation du clic à la carte
+  // };
+
+  // const handleSave = () => {
     
-    setIsEditing(false);
+  //   setIsEditing(false);
   
 
-    setCardOpen(false);
-  };
+  //   setCardOpen(false);
+  // };
+
+  
+
 
   return (
     <div>
@@ -51,7 +104,7 @@ function JobSeekerProfile() {
                 <div className='jobseeker__global__visible'>
                   <span>CV visibile auprès des recruteurs</span>
                   <input type="checkbox" className='input__switch' id="visible" name="visible"/>
-                  <label for="visible">
+                  <label htmlFor="visible">
                     <span className='input__switch__button'>
 
                     </span>
@@ -82,63 +135,30 @@ function JobSeekerProfile() {
           </div>
         </div>
         <div className='jobseeker__cards'>
-          <div className='jobseeker__card' onClick={handleCardOpen}>
+        {cards.map((card, index) => (
+          <div className='jobseeker__card' key={index} onClick={() => handleCardClick(index)}>
+            <div className='jobseeker__icon'>
+              <i className='icon'><FcBriefcase size="45px"/></i>
+            </div>
+            <div className='jobseeker__card__content'>
+              <h3 className='jobseeker__card__title'>{card.title}</h3>
+              <p className='jobseeker__card_description'>{card.description}</p>
+            </div>
+   
+            </div>
+                    ))}
+
+         
+          {/* <div className='jobseeker__card'>
             <div className='jobseeker__icon'>
               <i className='icon'><FcBriefcase size="45px"/></i>
             </div>
             <div className='jobseeker__card__content'>
               <h3 className='jobseeker__card__title'>Mes Critères De Recherche</h3>
               <p className='jobseeker__card_description'>Je précise mes critères de recherche</p>
-              {cardOpen && 
-                <div className='jobseeker__form__container'>
-                  <div className='jobseeker__form'> 
-                    <div className='jobseeker__form__header'>
-                      <span className='jobseeker__form__title'>
-                        je précise quels sont mes critères de recherches
-                      </span>
-                      <span className='jobseeker__form__required'> 
-                        Tous les champs sont obligatoires
-                      </span>
-                    </div>
-                    <div className='jobseeker__form__field'> 
-                      <label className='jobseeker__form__field__title'>
-                        Métier(s) recherché(s)
-                        <span className='jobseeker__form__required row'>(3 choix maximum)</span>
-                      </label>
-                      <input name="job" id="job" type="text" placeholder="Développeur web, Data Analyst, Community Manager..." onClick={handleInputChange}/>
-                    </div>
-                    <div className='jobseeker__form__field'> 
-                      <label className='jobseeker__form__field__title'>
-                        Localité(s) recherché(s)
-                        <span className='jobseeker__form__required row'>(3 choix maximum)</span>
-                      </label>
-                      <input name="job" id="job" type="text" placeholder="Ville, Département, Région" onClick={handleInputChange}/>
-                    </div>
-                    <div className='jobseeker__form__field'> 
-                      <label className='jobseeker__form__field__title'>
-                        Type(s) de contrat
-                      </label>
-                      <div className='jobseeker__form__contracts' onClick={handleInputChange}> 
-                        <input name="cdi" id="cdi" type="checkbox"  />
-                        <label for="cdi">CDI</label>
-                        <input name="cdd" id="cdd" type="checkbox"  />
-                        <label for="cdd">CDD</label>
-                        <input name="alternance" id="alternance" type="checkbox"  />
-                        <label for="alternance">Alternance</label>
-                        <input name="stage" id="stage" type="checkbox"  />
-                        <label for="stage">Stage</label>
-                        <input name="freelance" id="freelance" type="checkbox"  />
-                        <label for="freelance">Freelance</label>
-                        <input name="interim" id="interim" type="checkbox" />
-                        <label for="interim">Interim</label>
-                      </div>
-                    </div>
-                    <button onClick={handleSave}>Enregister</button>
-                  </div>
-                </div>
-              }
             </div>
           </div>
+          
           <div className='jobseeker__card'>
             <div className='jobseeker__icon'>
               <i className='icon'><FcBriefcase size="45px"/></i>
@@ -148,6 +168,7 @@ function JobSeekerProfile() {
               <p className='jobseeker__card_description'>Je précise mes critères de recherche</p>
             </div>
           </div>
+          
           <div className='jobseeker__card'>
             <div className='jobseeker__icon'>
               <i className='icon'><FcBriefcase size="45px"/></i>
@@ -156,17 +177,11 @@ function JobSeekerProfile() {
               <h3 className='jobseeker__card__title'>Mes Critères De Recherche</h3>
               <p className='jobseeker__card_description'>Je précise mes critères de recherche</p>
             </div>
-          </div>
-          <div className='jobseeker__card'>
-            <div className='jobseeker__icon'>
-              <i className='icon'><FcBriefcase size="45px"/></i>
-            </div>
-            <div className='jobseeker__card__content'>
-              <h3 className='jobseeker__card__title'>Mes Critères De Recherche</h3>
-              <p className='jobseeker__card_description'>Je précise mes critères de recherche</p>
-            </div>
-          </div>
+          </div> */}
         </div> 
+        {activeCardIndex !== null && (
+          <Modal isOpen={true} onClose={handleModalClose} />
+        )}
       </div>
     </div>
     

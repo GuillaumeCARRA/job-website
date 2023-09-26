@@ -1,54 +1,76 @@
 import React, { useState } from 'react';
+import TextInput from '../Input/textInput';
+import CheckboxGroup from '../Input/checkbox';
+import RadioInput from '../Input/radioInput'; // Importez le composant RadioInput ici
 
-import './modal.css'; 
+import './modal.css';
 
-function Modal({ isOpen, onClose }) {
-    const [formData, setFormData] = useState({
-        // Initialisez ici les informations de saisie
-        // Exemple : name: '', email: ''
-      });
-    
-      const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-      };
-    
-      const handleSave = () => {
-        // Traitez les données saisies, par exemple, envoyez-les au backend
-        console.log(formData);
-        onClose(); // Fermez la modale après avoir sauvegardé
-      };
-    
-    
-      return (
-        <>
-        {isOpen && (
-          <div className="overlay" onClick={onClose}>
-            <div className="modal-container">
-              <div className="modal-content">
-                <h2>Modifier les informations</h2>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Nom"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                />
-                <input
-                  type="text"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                />
-                <button onClick={handleSave}>Enregistrer</button>
-                <button onClick={onClose}>Fermer</button>
-              </div>
+function Modal({ isOpen, onClose, title, fields, formData, onInputChange, onSave }) {
+  const handleSaveClick = () => {
+    onSave(); // Appelle la fonction onSave pour sauvegarder les données
+  };
+
+  const handleInputChange = (e) => {
+    onInputChange(e); // Appelle la fonction onInputChange pour mettre à jour les données du formulaire
+  };
+
+  return (
+    <>
+      {isOpen && (
+        <div className="overlay" onClick={onClose}>
+          <div className="modal-container">
+            <div className="modal-content">
+              <h2>{title}</h2>
+              {fields.map((field, index) => (
+                <div key={index}>
+                  {field.type === "text" ? (
+                    <TextInput
+                      name={field.name}
+                      placeholder={field.placeholder}
+                      value={formData[field.name] || ''}
+                      onChange={handleInputChange}
+                    />
+                  ) : field.type === "checkbox" ? (
+                    <CheckboxGroup
+                      name={field.name}
+                      options={field.options}
+                      selectedOptions={formData[field.name] || []}
+                      onChange={(updatedOptions) => {
+                        // Mettre à jour le formulaire avec les options mises à jour
+                        onInputChange({
+                          target: {
+                            name: field.name,
+                            value: updatedOptions,
+                          },
+                        });
+                      }}
+                    />
+                  ) : field.type === "radio" ? ( // Ajoutez la gestion du type "radio"
+                    <RadioInput
+                      name={field.name}
+                      options={field.options}
+                      selectedValue={formData[field.name] || ''}
+                      onChange={(updatedValue) => {
+                        // Mettre à jour le formulaire avec la valeur mise à jour
+                        onInputChange({
+                          target: {
+                            name: field.name,
+                            value: updatedValue,
+                          },
+                        });
+                      }}
+                    />
+                  ) : null}
+                </div>
+              ))}
+              <button onClick={handleSaveClick}>Enregistrer</button>
+              <button onClick={onClose}>Fermer</button>
             </div>
           </div>
-        )}
-      </>
-      );
+        </div>
+      )}
+    </>
+  );
 }
 
 export default Modal;

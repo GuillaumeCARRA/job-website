@@ -7,6 +7,8 @@ import Home from '../src/pages/Home';
 import SignUp from './pages/Signup';
 import Login from './pages/Login';
 import JobSeekerProfile from './pages/EmployeeProfile';
+import JobSeeker from './pages/EmployeeProfile/JobSeeker';
+
 
 import './App.css';
 
@@ -18,17 +20,17 @@ function App() {
           exact path="/"
           element={<Home />}
         />
-        {/* <Route 
+        <Route 
           exact path="/signup/sign"
           element={<SignUp />}
         />
         <Route 
           exact path="/signup/log" 
           element={<Login />}
-        /> */}
+        />
         <Route 
           exact path ="/profile"
-          element={<JobSeekerProfile />}
+          element={<JobSeeker />}
         />
       </Routes>
     </div>

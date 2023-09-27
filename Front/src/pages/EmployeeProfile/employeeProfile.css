@@ -234,38 +234,3 @@
     transition: border-color ease-in-out .3s
 }
 
-.jobseeker__form__container {
-    display: flex;
-    flex-direction: column;
-    padding: 30px 20px;
-    background-color: #ffff;
-    overflow: visible;
-    
-    /* height: 300px; */
-}
-
-
-.jobseeker__form{
-    
-}
-.jobseeker__form__header{
-
-}
-.jobseeker__form__title{
-
-}
-.jobseeker__form__required{
-
-}
-.jobseeker__form__field{
-
-}
-.jobseeker__form__field__title{
-
-}
-.jobseeker__form__required row{
-
-}
-.jobseeker__form__contracts{
-
-}

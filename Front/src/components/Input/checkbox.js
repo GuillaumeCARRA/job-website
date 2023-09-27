@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './checkbox.css';
+
 function CheckboxGroup({ name, options, selectedOptions, onChange }) {
   const handleCheckboxChange = (value) => {
     const updatedSelectedOptions = selectedOptions.includes(value)
@@ -10,10 +12,11 @@ function CheckboxGroup({ name, options, selectedOptions, onChange }) {
   };
 
   return (
-    <div>
+    <div className='checkbox'>
       {options.map((option) => (
-        <label key={option.value}>
+        <label className='checkbox__container' key={option.value}>
           <input
+            className='checkbox__content'
             type="checkbox"
             name={name}
             value={option.value}

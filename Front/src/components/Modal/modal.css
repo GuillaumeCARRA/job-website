@@ -1,37 +1,127 @@
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fond flouté avec opacité */
-    z-index: 999;
-  }
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fond flouté avec opacité */
+  z-index: 999;
+}
   
   /* Style pour la modal */
   .modal-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   
-  .modal-content {
-    background-color: white;
-    width: 50%;
-    padding: 50px 20px;
-    height: 400px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    max-width: 80%;
-    max-height: 80%;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-  }
+.modal-content {
+  background-color: white;
+  min-width: 50%;
+  padding: 50px 40px;
+  min-height: 500px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  border: 1px solid #6560f8;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-input {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.modal-title {
+  font-size: 1.5rem; 
+  text-align: center;
+  font-weight: 700;
+}
+
+.modal-title-required {
+  margin: 5px auto 10px 15px;
+  font-size: .9rem;
+  color: #6560f8;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.modal-form-title {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+  font-weight: 500;
+  
+}
+
+.top {
+  margin-top: 10px;
+}
+
+.modal-form-title span {
+  font-size: .9rem;
+  margin-left: 10px;
+  color: #6560f8;
+}
+
+.modal-form-input {
+  outline-style: none;
+  height: 40px;
+  border: 1px solid #6560f8;
+  border-radius: 10px;
+}
+
+input {
+  padding: 8px;
+}
+
+.contract-container {
+  margin-top: 5px;
+}
+
+.modal-checkbox {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.modal-label {
+  margin-left: 5px;
+  font-size: 1.1rem;
+}
+
+.modal-btn {
+  width: 25%;
+  margin: 12px auto 0 auto;
+  padding: 15px 30px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+.save {
+  background-color: #4540DB;
+  color: #ffff;
+}
+
+.save:hover {
+  background-color: #6560f8;
+}
+
+.close {
+  background-color: #d3d3d3;
+}
+  

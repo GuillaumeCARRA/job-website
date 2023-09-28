@@ -14,7 +14,7 @@
   position: fixed;
   top: 0;
   left: 10%;
-  width: 80%;
+  width: 90%;
   height: 100%;
   z-index: 1000;
   display: flex;
@@ -43,7 +43,7 @@
 
 .modal-title {
   font-size: 1.5rem; 
-  text-align: center;
+  margin-left: 15px;
   font-weight: 700;
 }
 
@@ -113,6 +113,7 @@ input {
 }
 
 .save {
+  margin-top: 18px;
   background-color: #4540DB;
   color: #ffff;
 }
@@ -125,3 +126,11 @@ input {
   background-color: #d3d3d3;
 }
   
+.left {
+ margin-left: 15px;
+}
+
+.bg {
+  background-color: #ffff;
+}
+

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import instance from '../../axios';
+import { useUser } from '../../context/userContext';
 
 import logo from '../../assets/images/distojoblogo.png';
 
@@ -9,6 +10,8 @@ import logo from '../../assets/images/distojoblogo.png';
 function Login() {
 
   const navigate = useNavigate();  
+  const { updateUserName, updateAuthToken } = useUser();
+
 
   const handleSignIn = async(e) => {
     e.preventDefault(); 
@@ -26,6 +29,16 @@ function Login() {
 
     console.log('User connected:', user);
     console.log('Token:', token);
+
+
+    // localStorage.setItem('currentUserId', user.id);
+
+    // Stock les données de l'utilisateur dans le localStorage
+    localStorage.setItem('userData', JSON.stringify(user));
+    localStorage.setItem('authToken', token);
+    
+    updateAuthToken(token);
+    updateUserName(user.first_name);
 
     navigate('/profile'); 
 

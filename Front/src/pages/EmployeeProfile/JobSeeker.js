@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import NavProfile from '../../components/Navbar/navProfile';
+import { useUser } from '../../context/userContext';
 import { ModalCard1, ModalCard2, ModalCard3, ModalCard4 } from '../../components/Modal/modals';
 
 import './employeeProfile.css';
 
 import { 
-  FcBriefcase 
+  FcBriefcase,
+  FcSearch,
+  FcAbout,
+  FcDocument,
+  FcDownload
+
 } from "react-icons/fc"; 
 
 function JobSeeker() {
@@ -22,15 +28,17 @@ function JobSeeker() {
         setShowModal(false);
     };
 
+    const { userName } = useUser(); 
+
     return (
-        <div>
+        <div className='jobseeker'>
           <NavProfile />
           <div className='jobseeker__container'>
             <div className='jobseeker__data'>
               <div className='jobseeker__infos'>
                   <div className='jobseeker__header'>
                     <div>
-                      Bonjour <span className='jobseeker__firstname'>Guillaume !</span>
+                      Bonjour <span className='jobseeker__firstname'> {userName} !</span>
                     </div>
                   </div>
                   <div className='jobseeker__global'>
@@ -70,10 +78,10 @@ function JobSeeker() {
             <div className='jobseeker__cards'>
                 <div className='jobseeker__card' onClick={() => openModal(<ModalCard1 onClose={closeModal} />)}>
                     <div className='jobseeker__icon'>
-                    <i className='icon'><FcBriefcase size="45px"/></i>
+                    <i className='icon'><FcSearch size="45px"/></i>
                     </div>
                     <div className='jobseeker__card__content'>
-                    <h3 className='jobseeker__card__title'>Titre</h3>
+                    <h3 className='jobseeker__card__title'>Ma recherche d'emplois</h3>
                     <p className='jobseeker__card_description'>Description de la carte</p>
                     </div>
                 </div>
@@ -82,25 +90,25 @@ function JobSeeker() {
                     <i className='icon'><FcBriefcase size="45px"/></i>
                     </div>
                     <div className='jobseeker__card__content'>
-                    <h3 className='jobseeker__card__title'>Titre</h3>
+                    <h3 className='jobseeker__card__title'>Ma situation</h3>
                     <p className='jobseeker__card_description'>Description de la carte</p>
                     </div>
                 </div>
                 <div className='jobseeker__card' onClick={() => openModal(<ModalCard3 onClose={closeModal} />)}>
                     <div className='jobseeker__icon'>
-                    <i className='icon'><FcBriefcase size="45px"/></i>
+                    <i className='icon'><FcDocument size="45px"/></i>
                     </div>
                     <div className='jobseeker__card__content'>
-                    <h3 className='jobseeker__card__title'>Titre</h3>
+                    <h3 className='jobseeker__card__title'>Mon CV</h3>
                     <p className='jobseeker__card_description'>Description de la carte</p>
                     </div>
                 </div>
                 <div className='jobseeker__card' onClick={() => openModal(<ModalCard4 onClose={closeModal} />)}>
                     <div className='jobseeker__icon'>
-                    <i className='icon'><FcBriefcase size="45px"/></i>
+                    <i className='icon'><FcAbout size="45px"/></i>
                     </div>
                     <div className='jobseeker__card__content'>
-                    <h3 className='jobseeker__card__title'>Titre</h3>
+                    <h3 className='jobseeker__card__title'>Mes informations personnelles</h3>
                     <p className='jobseeker__card_description'>Description de la carte</p>
                     </div>
                 </div>
@@ -117,4 +125,4 @@ function JobSeeker() {
       )
 }
 
-export default JobSeeker
+export default JobSeeker;

@@ -1,18 +1,20 @@
 import React, { useState } from 'react'; 
 import instance from '../../axios';
-import { useNavigate, Link } from 'react-router-dom';
+import { useUser } from '../../context/userContext';
+import { useNavigate, Link  } from 'react-router-dom';
 
 import logo from '../../assets/images/distojoblogo.png';
 
 import './signup.css'; 
 
 function SignUp() {
+  
+  const { updateUserName, updateAuthToken } = useUser();
 
   const navigate = useNavigate(); 
 
   const handleSubmit = async(e) => {
     e.preventDefault(); 
-    console.log('target', e.target[0]);
 
     const formData = {
         first_name: e.target[0].value,
@@ -21,16 +23,18 @@ function SignUp() {
         password: e.target[3].value,
     };
 
-    console.log('Form Data:', formData);
-
     try {
-       const response = await instance.post('/signup/sign', formData);
-       const { data, token } = response.data; 
-       
-       console.log('User registered:', data);
-       console.log('Token:', token);
+        const response = await instance.post('/signup/sign', formData);
+        const { data, token } = response.data; 
+        
+        // Stockage du JWT dans le stockage local
+        localStorage.setItem('authToken', token);
+        localStorage.setItem('userData', JSON.stringify(formData));
+        
+        updateAuthToken(token);
+        updateUserName(formData.first_name);
 
-      navigate('/profile');
+        navigate('/profile');
     } catch (error) {
        console.error('Error registering user:', error);
     }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import instance from '../../axios';
 
 import './modal.css';
 
@@ -340,26 +341,35 @@ export const ModalCard4 = ({ onClose, onSave  }) => {
     });
 
     useEffect(() => {
-        // Vérifiez si les données d'inscription sont disponibles dans le localStorage
+        // Vérifie si les données d'inscription sont disponibles dans le localStorage
         const storedData = localStorage.getItem('userData');
         if (storedData) {
           const userData = JSON.parse(storedData);
-          // Mettez à jour l'état local avec les données d'inscription
+          // Met à jour l'état local avec les données d'inscription
           setFormData(userData);
         }
     }, []);
     
     const handleSave = () => {
-        // Mettez à jour les données d'utilisateur dans l'état local
-        // (vous pouvez ajouter ici la validation des données si nécessaire)
+        // Récupére les données actuelles de l'utilisateur dans le localStorage
+        const storedData = localStorage.getItem('userData');
+        const userData = storedData ? JSON.parse(storedData) : {}; // Si les données existent, parsez-les, sinon initialisez un objet vide
+
+        // Met à jour uniquement les champs qui sont modifiés
+        const updatedData = {
+            ...userData,
+            password: formData.password,
+            tel: formData.tel,
+            city: formData.city,
+            country: formData.country,
+        };
     
-        // Mettez également à jour les données d'utilisateur dans le localStorage
-        localStorage.setItem('userData', JSON.stringify(formData));
+        // Met également à jour les données d'utilisateur dans le localStorage
+        localStorage.setItem('userData', JSON.stringify(updatedData));
     
-        // Appelez la fonction onSave avec les données mises à jour
-        onSave(formData);
+        // Appelle la fonction onSave avec les données mises à jour
+        onSave(updatedData);
     
-        // Fermez la modal
         onClose();
     };
 
@@ -429,8 +439,6 @@ export const ModalCard4 = ({ onClose, onSave  }) => {
                                 name="password"
                                 id="password"
                                 placeholder="Entrez votre mot de passe"
-                                // value={formData.password}
-                                // onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                 required
                             />
                         </div>

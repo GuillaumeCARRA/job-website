@@ -18,8 +18,10 @@ function JobSeeker() {
 
     const [showModal, setShowModal] = useState(false);
     const [modalContent, setModalContent] = useState(null);
+    const [userData, setUserData] = useState({});
 
-    const openModal = (modalComponent) => {
+
+    const openModal = (modalComponent, onSaveCallback) => {
         setModalContent(modalComponent);
         setShowModal(true);
     };
@@ -27,6 +29,11 @@ function JobSeeker() {
     const closeModal = () => {
         setShowModal(false);
     };
+
+    const onSaveCallback = (updatedData) => {
+      setUserData(updatedData);
+      closeModal();
+    }
 
     const { userName } = useUser(); 
 
@@ -103,7 +110,7 @@ function JobSeeker() {
                     <p className='jobseeker__card_description'>Description de la carte</p>
                     </div>
                 </div>
-                <div className='jobseeker__card' onClick={() => openModal(<ModalCard4 onClose={closeModal} />)}>
+                <div className='jobseeker__card' onClick={() => openModal(<ModalCard4 onSave={onSaveCallback} onClose={closeModal} />)}>
                     <div className='jobseeker__icon'>
                     <i className='icon'><FcAbout size="45px"/></i>
                     </div>

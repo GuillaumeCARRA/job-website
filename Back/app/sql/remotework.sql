@@ -2,7 +2,10 @@ BEGIN;
 
 
 DROP TABLE IF EXISTS users, 
-                     job_seeker_details,
+                     job_seeker_search_criteria,
+                     job_seeker_current_situation,
+                     job_seeker_cv,
+                     job_seeker_personal_info,
                      recruiter,
                      job_category, 
                      job,
@@ -24,29 +27,57 @@ CREATE TABLE "users" (
     "password" TEXT NOT NULL
 );
 
-CREATE TABLE "job_seeker_details" (
+
+
+CREATE TABLE "job_seeker_search_criteria" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
-    "date_of_birth" DATE NOT NULL,
-    "address" TEXT NOT NULL,
-    "zip_code" TEXT NOT NULL, 
-    "district" TEXT NOT NULL, 
-    "country" TEXT NOT NULL,
-    "driving_licence" TEXT NOT NULL, 
-    "phone_number" TEXT NOT NULL, 
-    "current_job_title" TEXT NOT NULL, 
-    "is_current_job" TEXT NOT NULL, 
-    "availability_job" TEXT NOT NULL, 
-    "skill_level" TEXT NOT NULL, 
-    "degree_level" TEXT NOT NULL, 
-    "degree_name" TEXT NOT NULL, 
-    "annual_salary" INT NOT NULL, 
-    "worker_statuts" TEXT NOT NULL, 
-    "job_title_search" TEXT NOT NULL, 
-    "job_location_search" TEXT NOT NULL, 
-    "job_contract_search" TEXT NOT NULL,
+    "job_title_search" TEXT, 
+    "job_location_search" TEXT, 
+    "job_contract_search" TEXT,
     "users_id" INT REFERENCES "users"("id")
 );
 
+CREATE TABLE "job_seeker_current_situation" (
+    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+    "current_job_title" TEXT NOT NULL, 
+    "availability_job" TEXT NOT NULL, 
+    "skill_level" TEXT NOT NULL, 
+    "degree_level" TEXT NOT NULL, 
+    "annual_salary" INT NOT NULL, 
+    "current_situation" TEXT NOT NULL, 
+    "users_id" INT REFERENCES "users"("id")
+);
+
+CREATE TABLE "job_seeker_cv" (
+    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+    "cv_url" TEXT,
+    "users_id" INT REFERENCES "users"("id")
+);
+
+CREATE TABLE "job_seeker_personal_info" (
+    "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+    "district" TEXT NOT NULL, 
+    "country" TEXT NOT NULL,
+    "phone_number" TEXT NOT NULL, 
+    "users_id" INT REFERENCES "users"("id")
+);
+
+-- CREATE TABLE "job_seeker_details" (
+--     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+--     "date_of_birth" DATE,
+--     "address" TEXT,
+--     "zip_code" TEXT, 
+--     "district" TEXT, 
+--     "country" TEXT,
+--     "driving_licence" TEXT, 
+--     "phone_number" TEXT, 
+   
+--     "is_current_job" TEXT, 
+    
+    
+    
+--     "users_id" INT REFERENCES "users"("id")
+-- );
 
 CREATE TABLE "recruiter" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
@@ -74,7 +105,7 @@ CREATE TABLE "job" (
     "date_published" DATE NOT NULL,
     "job_start_date" DATE NOT NULL,
     "contract_status" TEXT NOT NULL,
-    "recruiter_id" INT REFERENCES "recruiter"("id"),
+    "recruiter_id" INT REFERENCES "recruiter"("id")
     -- "job_category_id" INT REFERENCES "job_category"("id")
 );
 
@@ -83,7 +114,7 @@ CREATE TABLE "job_applications" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
     "date_applied" DATE NOT NULL,
     "job_id" INT REFERENCES "job"("id"), 
-    "job_seeker_details_id" INT REFERENCES "job_seeker_details"("id")
+    "users_id" INT REFERENCES "users"("id")
 );
 
 CREATE TABLE "_m2m_job_cat" (

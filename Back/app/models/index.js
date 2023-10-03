@@ -1,7 +1,11 @@
 const Job = require('./job'); 
 const JobApplications = require('./jobApplications'); 
 const JobCategory = require ('./jobCategory'); 
-const JobSeekerDetails = require('./jobSeekerDetails'); 
+const JobSeekerCriteria = require ('./jobSeekerCriteria');
+const JobSeekerSituation = require ('./jobSeekerSituation');
+const JobSeekerCv = require ('./jobSeekerCv');
+const JobSeekerInfo = require ('./jobSeekerInfo'); 
+// const JobSeekerDetails = require('./jobSeekerDetails'); 
 const Recruiter = require('./recruiter'); 
 const Users = require('./users'); 
 
@@ -9,29 +13,57 @@ const Users = require('./users');
 // a Users has many JobSeekerDetail (n) => hasMany
 // 1st argument: the model to link
 // 2nd argument: configuration object
-Users.hasMany(JobSeekerDetails, {
+Users.hasMany(JobSeekerCriteria, {
     // the foreign key that must be found in JobSeekerDetails
     foreignKey: 'users_id',
      // the name we want to give to the jobSeekers in users if we do a join
-    as:'jobSeekers'
+    as:'jobSeekerCriteria'
 }); 
 
-JobSeekerDetails.belongsTo(Users, {
+JobSeekerCriteria.belongsTo(Users, {
     foreignKey: 'users_id',
 
     as: 'users'
 });
+
+Users.hasMany(JobSeekerSituation, {
+    foreignKey: 'users_id',
+    as: 'jobSeekerSituations',
+});
+
+JobSeekerSituation.belongsTo(Users, {
+    foreignKey: 'users_id',
+
+    as: 'users'
+});
+
+Users.hasMany(JobSeekerCv, {
+    foreignKey: 'users_id',
+    as: 'jobSeekerCvs',
+});
+
+JobSeekerCv.belongsTo(Users, {
+    foreignKey: 'users_id',
+
+    as: 'users'
+});
+
+Users.hasOne(JobSeekerInfo, {
+    foreignKey: 'users_id',
+    as: 'jobSeekerInfo',
+});
+
 /*JOBSEEKER USER 1N END */
 
 /*JOBSEEKER JOBAPPLICATIONS 1N START */
-JobSeekerDetails.hasMany(JobApplications,{
-    foreignKey: 'job_seeker_details_id',
+Users.hasMany(JobApplications,{
+    foreignKey: 'users_id',
 
     as: 'jobApplies'
 }); 
 
-JobApplications.belongsTo(JobSeekerDetails, {
-    foreignKey: 'job_seeker_details_id',
+JobApplications.belongsTo(Users, {
+    foreignKey: 'users_id',
 
     as:'jobSeekers'
 });
@@ -100,7 +132,11 @@ module.exports = {
     Job, 
     JobApplications,
     JobCategory, 
-    JobSeekerDetails, 
+    JobSeekerCriteria, 
+    JobSeekerSituation,
+    JobSeekerCv,
+    JobSeekerInfo,
+    // JobSeekerDetails, 
     Recruiter,
     Users 
 }

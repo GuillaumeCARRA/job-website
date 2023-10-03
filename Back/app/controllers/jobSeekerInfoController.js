@@ -17,7 +17,7 @@ module.exports = {
         }
     },
 
-    getOneJobSeekerCriteria : async(request, response) => {
+    getOneJobSeekerInfo : async(request, response) => {
         const jobSeekerInfoId = request.params.id; 
 
         try {

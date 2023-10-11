@@ -4,7 +4,7 @@ const emailValidator = require('email-validator');
 require('dotenv').config();
 
 //models import
-const { Users, JobSeekerDetails } = require('../models'); 
+const { Users, JobSeekerInfo  } = require('../models'); 
 
 //jwt import
 const { generateToken, verifyToken } = require('../auth/jwtUtils'); 
@@ -68,7 +68,7 @@ module.exports = {
 
                             // After successfully saving the new user, generate the JWT
                             const token = generateToken({ id: newUser.id, email: newUser.email });
-
+                            
                             // Add the JWT to the response
                             return response.status(200).json({data: newUser, token });
                         }

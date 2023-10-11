@@ -1,4 +1,6 @@
-const { JobSeekerInfo } = require ('../models'); 
+const { JobSeekerInfo, Users } = require ('../models'); 
+// const { generateToken, verifyToken } = require('../auth/jwtUtils'); 
+
 
 module.exports = {
     getAllJobSeekerInfo: async(request, response) => {
@@ -35,15 +37,28 @@ module.exports = {
     },
 
     createJobSeekerInfo : async(request, response) => {
-        const jobSeekerInfoData = {
-            district: request.body.district,
-            country: request.body.country,
-            phone_number: request.body.phone_number,
-            users_id: request.body.users_id
-        };
-
+    
         try {
-            const createdJobSeekerInfo = await JobSeekerInfo.create(jobSeekerInfoData);
+
+            const jobSeekerInfoData = {
+                district: request.body.district,
+                country: request.body.country,
+                phone_number: request.body.phone_number,
+                users_id: request.body.users_id
+            };
+    
+            console.log('info data', jobSeekerInfoData);
+            
+            const createdJobSeekerInfo = await JobSeekerInfo.create(jobSeekerInfoData , {
+                include: [
+                    {association: 'users'}
+                ]
+            });
+
+            // console.log('include', include);
+
+            console.log('created', createdJobSeekerInfo);
+
             response.status(201).json({data: createdJobSeekerInfo}); 
         } catch (error) {
             console.log(error);
@@ -109,5 +124,21 @@ module.exports = {
             console.log(error);
             response.status(500).json({ error });
         }
-    }
+    },
 }
+
+  // //Récupérer le token d'autorisation de l'en-tête de la requête
+            // const token = request.header('Authorization');
+            // // const token = request.headers.authorization.split(' ')[1];
+            // console.log('Authorization Header:', token);
+
+            // // Vérifier si le token est valide
+            // const decodedToken = verifyToken(token);
+            // console.log('decodedToken', decodedToken);
+
+            // if (decodedToken.error) {
+            //     return response.status(401).json({ error: 'Token invalide' });
+            // }
+
+            // L'ID de l'utilisateur est maintenant accessible dans decodedToken.userId
+            // const userId = decodedToken.userId;

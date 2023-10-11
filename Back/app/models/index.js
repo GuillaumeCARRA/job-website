@@ -48,9 +48,14 @@ JobSeekerCv.belongsTo(Users, {
     as: 'users'
 });
 
-Users.hasOne(JobSeekerInfo, {
+Users.hasMany(JobSeekerInfo, {
     foreignKey: 'users_id',
     as: 'jobSeekerInfo',
+});
+
+JobSeekerInfo.belongsTo(Users, {
+    foreignKey: 'users_id',
+    as: 'users',
 });
 
 /*JOBSEEKER USER 1N END */

@@ -7,11 +7,6 @@ const cors = require('cors');
 // create server express
 const app = express(); 
 
-// app.use((req, res, next) => {
-//     res.setHeader('Content-Security-Policy', "default-src 'none'; img-src *; script-src *; style-src *;");
-//     next();
-//   });
-
 app.get('/', (req, res) => {
     res.send('Hello World');
   });
@@ -24,9 +19,9 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
 app.use(cors({
-    origin: '*',
+    origin: 'http://localhost:3000',
     methods: 'GET,POST,PATCH,DELETE,OPTIONS',
-    allowedHeaders: 'Content-Type'
+    allowedHeaders: 'Content-Type, Authorization'
 }));
 
 

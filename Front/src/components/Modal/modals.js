@@ -337,8 +337,14 @@ export const ModalCard4 = ({ onClose, onSave  }) => {
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
-        email: ''  
+        email: '', 
+        password: '',
+        district: '', 
+        country: '',
+        phone_number: ''
     });
+
+   
 
     useEffect(() => {
         // Vérifie si les données d'inscription sont disponibles dans le localStorage
@@ -346,31 +352,78 @@ export const ModalCard4 = ({ onClose, onSave  }) => {
         if (storedData) {
           const userData = JSON.parse(storedData);
           // Met à jour l'état local avec les données d'inscription
-          setFormData(userData);
+          setFormData({
+            first_name: userData.first_name || '', 
+            last_name: userData.last_name || '',
+            email: userData.email || '', 
+            password: '',
+            district: userData.district || '', 
+            country: userData.country || '',
+            phone_number: userData.phone_number || ''
+            });
         }
     }, []);
     
-    const handleSave = () => {
-        // Récupére les données actuelles de l'utilisateur dans le localStorage
-        const storedData = localStorage.getItem('userData');
-        const userData = storedData ? JSON.parse(storedData) : {}; // Si les données existent, parsez-les, sinon initialisez un objet vide
+    const handleInputChange = (e) => {
+        // Met à jour l'état avec les données du formulaire lors de la saisie
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+    
+    const handleSave = async () => {
 
-        // Met à jour uniquement les champs qui sont modifiés
-        const updatedData = {
-            ...userData,
-            password: formData.password,
-            tel: formData.tel,
-            city: formData.city,
-            country: formData.country,
-        };
+        
+        try {
+
+            const userId = localStorage.getItem('userId');
+
+            const postData = {
+                first_name: formData.first_name,
+                last_name: formData.last_name,
+                email: formData.email,
+                district: formData.district,
+                country: formData.country,
+                phone_number: formData.phone_number,
+                users_id: userId
+            };
+
+            console.log('district', formData.district);
+            console.log('country', formData.country);
+            console.log('tel', formData.phone_number);
+            console.log('users_id', userId);
+
+            
+
+            const response = await instance.post(`/info`, postData); 
+            console.log('données enregistrées: ', response.data);
+            
+
+            onSave(response.data);
+
+            onClose();
+
+        } catch (error) {
+            console.log("Erreur lors de l'enregistrement des données :", error);
+        }
+        // Récupére les données actuelles de l'utilisateur dans le localStorage
+        // const storedData = localStorage.getItem('userData');
+        // const userData = storedData ? JSON.parse(storedData) : {}; // Si les données existent, parsez-les, sinon initialisez un objet vide
+
+        // // Met à jour uniquement les champs qui sont modifiés
+        // const updatedData = {
+        //     ...userData,
+        //     password: formData.password,
+        //     tel: formData.tel,
+        //     city: formData.city,
+        //     country: formData.country,
+        // };
     
-        // Met également à jour les données d'utilisateur dans le localStorage
-        localStorage.setItem('userData', JSON.stringify(updatedData));
+        // // Met également à jour les données d'utilisateur dans le localStorage
+        // localStorage.setItem('userData', JSON.stringify(updatedData));
     
-        // Appelle la fonction onSave avec les données mises à jour
-        onSave(updatedData);
+        // // Appelle la fonction onSave avec les données mises à jour
+        // onSave(updatedData);
     
-        onClose();
+        
     };
 
     return (
@@ -394,8 +447,8 @@ export const ModalCard4 = ({ onClose, onSave  }) => {
                                 name="last_name"
                                 id="last_name"
                                 placeholder="Entrez votre nom"
-                                value={formData.last_name}
-                                onChange={(e) => setFormData({ ...formData, last_name: e.target.value })}
+                                value={formData.last_name ?? ''}
+                                onChange={handleInputChange}
                                 required
                             />
                         </div>
@@ -410,7 +463,7 @@ export const ModalCard4 = ({ onClose, onSave  }) => {
                                 id="first_name"
                                 placeholder="Entrez votre prénom"
                                 value={formData.first_name}
-                                onChange={(e) => setFormData({ ...formData, first_name: e.target.value })}
+                                onChange={handleInputChange}                                
                                 required
                             />
                         </div>
@@ -425,7 +478,7 @@ export const ModalCard4 = ({ onClose, onSave  }) => {
                                 id="email"
                                 placeholder="Entrez votre email"
                                 value={formData.email}
-                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                onChange={handleInputChange}
                                 required
                             />
                         </div>
@@ -443,28 +496,32 @@ export const ModalCard4 = ({ onClose, onSave  }) => {
                             />
                         </div>
                         <div className='modal-form'>
-                            <label for="tel" className='modal-form-title top'>
+                            <label for="phone_number" className='modal-form-title top'>
                                 Téléphone
                             </label>
                             <input 
                                 type="tel"
                                 className='modal-form-input'
-                                name="tel"
-                                id="tel"
+                                name="phone_number"
+                                id="phone_number"
                                 placeholder="Entrez votre numéro de téléphone"
+                                value={formData.phone_number}
+                                onChange={handleInputChange}
                                 required
                             />
                         </div>
                         <div className='modal-form'>
-                            <label for="city" className='modal-form-title top'>
+                            <label for="district" className='modal-form-title top'>
                                 Ville de résidence
                             </label>
                             <input 
                                 type="text"
                                 className='modal-form-input'
-                                name="city"
-                                id="city"
+                                name="district"
+                                id="district"
                                 placeholder="Entrez votre ville de résidence"
+                                value={formData.district}
+                                onChange={handleInputChange}
                                 required
                             />
                         </div>
@@ -478,6 +535,8 @@ export const ModalCard4 = ({ onClose, onSave  }) => {
                                 name="country"
                                 id="country"
                                 placeholder="Entrez votre pays de résidence"
+                                value={formData.country}
+                                onChange={handleInputChange}
                                 required
                             />
                         </div>

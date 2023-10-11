@@ -26,11 +26,14 @@ function SignUp() {
     try {
         const response = await instance.post('/signup/sign', formData);
         const { data, token } = response.data; 
+        // console.log('id signup', response.data.id);
         
         // Stockage du JWT dans le stockage local
         localStorage.setItem('authToken', token);
         localStorage.setItem('userData', JSON.stringify(formData));
-        
+        localStorage.setItem('userId', data.id)
+        console.log(data.id);
+
         updateAuthToken(token);
         updateUserName(formData.first_name);
 
